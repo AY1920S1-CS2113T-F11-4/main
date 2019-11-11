@@ -1,0 +1,396 @@
+<html>
+<head>
+<title>UserGuide.adoc</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #a9b7c6;}
+.s3 { color: #6a8759;}
+.s4 { color: #a9b7c6;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+UserGuide.adoc</font>
+</center></td></tr></table>
+<pre><span class="s0">= MisterMusik - User Guide</span>
+<span class="s0">:</span><span class="s2">icons</span><span class="s0">: </span><span class="s3">font</span>
+<span class="s0">:</span><span class="s2">site-section</span><span class="s0">: </span><span class="s3">UserGuide</span>
+<span class="s0">:</span><span class="s2">toc</span><span class="s0">:</span>
+<span class="s0">:</span><span class="s2">toc-title</span><span class="s0">:</span>
+<span class="s0">:</span><span class="s2">toc-placement</span><span class="s0">: </span><span class="s3">preamble</span>
+<span class="s0">:</span><span class="s2">sectnums</span><span class="s0">:</span>
+<span class="s0">:</span><span class="s2">imagesDir</span><span class="s0">: </span><span class="s3">images</span>
+<span class="s0">:</span><span class="s2">stylesDir</span><span class="s0">: </span><span class="s3">stylesheets</span>
+<span class="s0">:</span><span class="s2">xrefstyle</span><span class="s0">: </span><span class="s3">full</span>
+<span class="s0">:</span><span class="s2">experimental</span><span class="s0">:</span>
+<span class="s0">ifdef::env-github[]</span>
+<span class="s0">:</span><span class="s2">tip-caption</span><span class="s0">: </span><span class="s3">:bulb:</span>
+<span class="s0">:</span><span class="s2">note-caption</span><span class="s0">: </span><span class="s3">:information_source:</span>
+<span class="s0">endif::[]</span>
+<span class="s0">:</span><span class="s2">repoURL</span><span class="s0">: </span><span class="s3">https://github.com/AY1920S1-CS2113T-F11-4/main</span>
+
+<span class="s1">By: </span><span class="s0">`</span><span class="s4">Team CS2113T-F11-4</span><span class="s0">`      </span><span class="s1">Since: </span><span class="s0">`</span><span class="s4">Aug 2019</span><span class="s0">`      </span><span class="s1">Licence: </span><span class="s0">`</span><span class="s4">MIT</span><span class="s0">`</span>
+
+<span class="s0">== Introduction</span>
+
+<span class="s1">MisterMusik is a scheduler program created for serious music students</span>
+<span class="s1">pursuing a professional music career as a western classical music performer.</span>
+<span class="s1">The program is designed to automate and streamline most of the process in scheduling and organisation of materials,</span>
+<span class="s1">allowing the students to focus more on the important aspects of their education.</span>
+
+<span class="s0">== Quick Start</span>
+
+<span class="s0">. </span><span class="s1">Ensure you have Java </span><span class="s0">`</span><span class="s4">11</span><span class="s0">` </span><span class="s1">or above installed in your computer</span>
+<span class="s0">. </span><span class="s1">Download the latest </span><span class="s0">`</span><span class="s4">mistermusik.jar</span><span class="s0">`</span>
+<span class="s0">. </span><span class="s1">Copy the file to the folder you want to use as the home folder for your MisterMusik</span>
+<span class="s0">. </span><span class="s1">Double-click the file to start the app.</span>
+<span class="s0">. </span><span class="s1">Type the command in the command box and press </span><span class="s0">kbd:[</span><span class="s1">Enter</span><span class="s0">] </span><span class="s1">to execute it. </span><span class="s0">+ 
+</span><span class="s1">E.g. typing </span><span class="s0">`</span><span class="s4">help</span><span class="s0">` </span><span class="s1">and pressing </span><span class="s0">kbd:[</span><span class="s1">Enter</span><span class="s0">] </span><span class="s1">will open the help window.</span>
+<span class="s0">+</span>
+<span class="s0">. </span><span class="s1">Please refer to </span><span class="s0">&lt;&lt;Features&gt;&gt; </span><span class="s1">for details of each command.</span>
+
+<span class="s0">[[Features]]</span>
+<span class="s0">== Features</span>
+<span class="s0">====</span>
+<span class="s0">. </span><span class="s1">Words in &lt;&gt; are the parameters to be supplied by the user</span>
+<span class="s0">. </span><span class="s1">Items in [] are optional</span>
+<span class="s0">. </span><span class="s1">Items with | in between them indicate the user can choose to use either of them</span>
+<span class="s0">====</span>
+
+<span class="s0">=== Help list : `help`</span>
+
+<span class="s1">Brings up a list of available commands that the user can input. Users can also use </span><span class="s0">`</span><span class="s4">help </span><span class="s1">&lt;</span><span class="s4">command type</span><span class="s1">&gt;</span><span class="s0">` </span><span class="s1">to see the</span>
+<span class="s1">combined or detailed commands.+</span>
+<span class="s1">The help list will be printed every time MisterMusik is opened.</span>
+
+<span class="s1">Format: </span><span class="s0">`</span><span class="s4">help </span><span class="s1">[&lt;</span><span class="s4">command type</span><span class="s1">&gt;]</span><span class="s0">`</span>
+<span class="s1">Note: Command types are the first word of following commands or some key words listed in the basic help list.</span>
+
+<span class="s0">=== List : `list`</span>
+<span class="s1">List all the events from the current date. Additionally it tracks which events are already over and prints out only</span>
+<span class="s1">future events, starting from the index of the nearest future event e.g. if the first and second events of the list are</span>
+<span class="s1">already over, it will list from the third event onwards while keeping the event index the same.</span>
+
+<span class="s1">It also gives a reminder of which of the past events contain goals that are not yet marked as achieved. </span><span class="s0">+ 
+</span>
+<span class="s1">Format: </span><span class="s0">`</span><span class="s4">list</span><span class="s0">`</span>
+
+<span class="s0">=== Reminders : `reminder`</span>
+
+<span class="s1">Displays the list of tasks over the next three days in default. The user is also able to see the events in days they</span>
+<span class="s1">wants by typing in </span><span class="s0">`</span><span class="s4">reminder </span><span class="s1">&lt;</span><span class="s4">days</span><span class="s1">&gt;</span><span class="s0">` + 
+</span>
+<span class="s1">Format: </span><span class="s0">`</span><span class="s4">reminder </span><span class="s1">[&lt;</span><span class="s4">reminder days</span><span class="s1">&gt;]</span><span class="s0">` + 
+</span><span class="s1">Note: The number of days must be an integer.</span>
+
+<span class="s0">=== Adding a to-do task : `todo`</span>
+
+<span class="s1">Adds a task defined by the user to the to-do list with a deadline. </span><span class="s0">+ 
+</span>
+<span class="s1">Format: </span><span class="s0">`</span><span class="s4">todo </span><span class="s1">&lt;</span><span class="s4">name of task</span><span class="s1">&gt; </span><span class="s4">/dd-MM-yyyy </span><span class="s1">[</span><span class="s4">HHmm</span><span class="s1">]</span><span class="s0">` + 
+</span>
+<span class="s0">NOTE: </span><span class="s1">Reminder that the bracketed input is optional. </span><span class="s0">+ 
+</span>
+<span class="s1">E.g. </span><span class="s0">`</span><span class="s4">todo complete theory homework /10-10-2019</span><span class="s0">`</span>
+<span class="s1">adds a deadline to complete the user's theory homework by 10 October 2019.</span>
+
+<span class="s0">=== Adding an event task :</span>
+
+<span class="s1">Adds an event defined by the user to the list of tasks.</span>
+<span class="s1">The former and latter time inputs denote the start and end time respectively. </span><span class="s0">+ 
+</span>
+<span class="s1">For recurring events, please see </span><span class="s0">&lt;&lt;Recurring events :, </span><span class="s1">Recurring events</span><span class="s0">&gt;&gt;</span><span class="s1">.</span>
+
+<span class="s0">. </span><span class="s1">Practice sessions : </span><span class="s0">`</span><span class="s4">practice</span><span class="s0">` + 
+</span><span class="s1">Format: </span><span class="s0">`</span><span class="s4">practice </span><span class="s1">&lt;</span><span class="s4">practice description</span><span class="s1">&gt; </span><span class="s4">/dd-MM-yyyy HHmm HHmm</span><span class="s0">`</span>
+<span class="s0">+</span>
+<span class="s0">. </span><span class="s1">Lessons : </span><span class="s0">`</span><span class="s4">lesson</span><span class="s0">` + 
+</span><span class="s1">Format: </span><span class="s0">`</span><span class="s4">lesson </span><span class="s1">&lt;</span><span class="s4">lesson description</span><span class="s1">&gt; </span><span class="s4">/dd-MM-yyyy HHmm HHmm</span><span class="s0">`</span>
+<span class="s0">+</span>
+<span class="s0">. </span><span class="s1">Examinations : </span><span class="s0">`</span><span class="s4">exam</span><span class="s0">` + 
+</span><span class="s1">Format: </span><span class="s0">`</span><span class="s4">exam </span><span class="s1">&lt;</span><span class="s4">exam description</span><span class="s1">&gt; </span><span class="s4">/dd-MM-yyyy HHmm HHmm</span><span class="s0">`</span>
+<span class="s0">+</span>
+<span class="s0">. </span><span class="s1">Recitals: </span><span class="s0">`</span><span class="s4">recital</span><span class="s0">` + 
+</span><span class="s1">Format: </span><span class="s0">`</span><span class="s4">recital </span><span class="s1">&lt;</span><span class="s4">recital description</span><span class="s1">&gt; </span><span class="s4">/dd-MM-yyyy HHmm HHmm</span><span class="s0">`</span>
+<span class="s0">+</span>
+<span class="s0">. </span><span class="s1">Concerts : </span><span class="s0">`</span><span class="s4">concert</span><span class="s0">` + 
+</span><span class="s1">Format: </span><span class="s0">`</span><span class="s4">concert </span><span class="s1">&lt;</span><span class="s4">concert description</span><span class="s1">&gt; </span><span class="s4">/dd-MM-yyyy HHmm HHmm /</span><span class="s1">[&lt;</span><span class="s4">cost of concert</span><span class="s1">&gt;]</span><span class="s0">` + 
+</span>
+<span class="s0">NOTE: </span><span class="s1">Cost of concert must be an integer (for simplicity regarding budgeting).</span>
+
+
+<span class="s0">=== Recurring events :</span>
+
+<span class="s1">MisterMusik allows the user to add recurring events (e.g. weekly lessons).</span>
+<span class="s1">The input format is as per normal with an extra recurring period input.</span>
+<span class="s1">This only works with lesson and practice type events. Concerts, exams and</span>
+<span class="s1">recitals cannot be entered as recurring events.</span>
+
+<span class="s1">Format: </span><span class="s0">`</span><span class="s4">lesson|practice </span><span class="s1">&lt;</span><span class="s4">event description</span><span class="s1">&gt; </span><span class="s4">/dd-MM-yyyy HHmm HHmm /</span><span class="s1">&lt;</span><span class="s4">period</span><span class="s1">(</span><span class="s4">in days</span><span class="s1">)&gt;</span><span class="s0">` + 
+</span><span class="s1">Note: The number of days must be an integer.</span>
+
+<span class="s1">E.g. “lesson Theory class /18-09-2019 0900 1030 /7”</span>
+<span class="s1">adds a weekly recurring event from 9:00am to 10:30am, starting on 18 September 2019.</span>
+
+<span class="s0">=== Calendar Table : `calendar`</span>
+<span class="s1">The calendar table is generated from the </span><span class="s0">`</span><span class="s4">EventList</span><span class="s0">`</span><span class="s1">. It prints on the screen a table of calendar of 7 days</span>
+<span class="s1">starting from a specified day, including the events within this time period. </span><span class="s0">+ 
+</span>
+<span class="s0">==== Commands for CalendarView</span>
+<span class="s0">- `</span><span class="s4">calendar</span><span class="s0">` </span><span class="s1">This prints the calendar table of this 7 days.</span>
+<span class="s0">- `</span><span class="s4">calendar next</span><span class="s0">` </span><span class="s1">This prints the calendar table of the next 7 days.</span>
+<span class="s0">- `</span><span class="s4">calendar last</span><span class="s0">` </span><span class="s1">This prints the calendar table of the last 7 days.</span>
+<span class="s0">- `</span><span class="s4">calendar on</span><span class="s0">` </span><span class="s1">Allow the calendar to be printed after every command execution.</span>
+<span class="s0">- `</span><span class="s4">calendar off</span><span class="s0">` </span><span class="s1">Not allowing the calendar to be printed after every command execution.</span>
+
+<span class="s0">=== Viewing schedules : `view`</span>
+
+<span class="s1">Brings up a list of events for a particular date. </span><span class="s0">+ 
+</span>
+<span class="s1">Note: This only displays the schedule for events. Viewing of todo tasks on a particular date will be</span>
+<span class="s1">implemented in v2.0.</span>
+
+<span class="s1">Format: </span><span class="s0">`</span><span class="s4">view dd-MM-yyyy</span><span class="s0">` + 
+</span><span class="s1">E.g. “view 18-09-2019”</span>
+<span class="s1">displays all events on the date 18 September 2019.</span>
+
+
+<span class="s0">=== Checking for free days : `check`</span>
+
+<span class="s1">The user can check for the nearest days that are free.</span>
+<span class="s1">This will list the next 3 free days on the users' schedule. A</span>
+<span class="s1">day is considered free if there are no events scheduled. ToDos are not counted</span>
+<span class="s1">as events.</span>
+
+<span class="s1">Format: </span><span class="s0">`</span><span class="s4">check</span><span class="s0">`</span>
+
+
+<span class="s0">=== Marking a todo as done : `done`</span>
+
+<span class="s1">Marks a ToDo in the list as completed, denoted by a tick when displaying the task.</span>
+<span class="s1">This functionality does not work for events that are not ToDos. </span><span class="s0">+ 
+</span>
+<span class="s1">Format: </span><span class="s0">`</span><span class="s4">done </span><span class="s1">&lt;</span><span class="s4">task index</span><span class="s1">&gt;</span><span class="s0">` + 
+</span><span class="s1">E.g. “done 5” marks task number 5 as done.</span>
+
+<span class="s0">=== Rescheduling events : `reschedule`</span>
+
+<span class="s1">The user is able to reschedule an existing event. </span><span class="s0">+ 
+</span>
+<span class="s1">Format: </span><span class="s0">`</span><span class="s4">reschedule </span><span class="s1">&lt;</span><span class="s4">task index</span><span class="s1">&gt; </span><span class="s4">dd-MM-yyyy HHmm HHmm</span><span class="s0">`</span>
+
+<span class="s0">=== Search : `find`</span>
+
+<span class="s1">The user is able to search for a specific event/task using keywords.</span>
+
+<span class="s1">Format: </span><span class="s0">`</span><span class="s4">find </span><span class="s1">&lt;</span><span class="s4">keyword</span><span class="s1">&gt;</span><span class="s0">` </span><span class="s1">will display all events/tasks previously entered</span>
+<span class="s1">containing the desired keyword.</span>
+
+<span class="s0">=== Edit an event/ToDo : `edit`</span>
+<span class="s1">The user is able to edit the name of the event/ToDo he entered in case he entered it wrongly.</span>
+
+<span class="s1">Format: </span><span class="s0">`</span><span class="s4">edit </span><span class="s1">&lt;</span><span class="s4">index for edition</span><span class="s1">&gt;</span><span class="s4">/</span><span class="s1">&lt;</span><span class="s4">new description</span><span class="s1">&gt;</span><span class="s0">`</span>
+
+
+<span class="s0">=== Contact management : `contact`</span>
+<span class="s1">The user is able to add, delete, view, and edit contacts information of an event or todo.</span>
+<span class="s1">A contact includes name, email address, and phone number.</span>
+
+<span class="s0">==== Add contact item</span>
+<span class="s1">Format: </span><span class="s0">`</span><span class="s4">contact add </span><span class="s1">&lt;</span><span class="s4">event index</span><span class="s1">&gt; </span><span class="s4">/</span><span class="s1">&lt;</span><span class="s4">name</span><span class="s1">&gt;</span><span class="s4">, </span><span class="s1">[&lt;</span><span class="s4">email</span><span class="s1">&gt;]</span><span class="s4">, </span><span class="s1">[&lt;</span><span class="s4">phone number</span><span class="s1">&gt;]</span><span class="s0">` </span><span class="s1">This adds a contact to a specific event. </span><span class="s0">+ 
+</span><span class="s1">Users can type </span><span class="s0">kbd:[</span><span class="s1">Space</span><span class="s0">] </span><span class="s1">instead of </span><span class="s0">`</span><span class="s1">&lt;</span><span class="s4">name</span><span class="s1">&gt;</span><span class="s0">` </span><span class="s1">or </span><span class="s0">`</span><span class="s1">&lt;</span><span class="s4">email</span><span class="s1">&gt;</span><span class="s0">` </span><span class="s1">or </span><span class="s0">`</span><span class="s1">&lt;</span><span class="s4">phone number</span><span class="s1">&gt;</span><span class="s0">` </span><span class="s1">if the user do not want to write in one</span>
+<span class="s1">or two type of information. (e.g. </span><span class="s0">`</span><span class="s4">contact add 1 /name, ,12345678</span><span class="s0">` </span><span class="s1">adds a contact set without email address to the</span>
+<span class="s1">first event)</span>
+
+<span class="s0">==== Delete contact item</span>
+<span class="s1">Format: </span><span class="s0">`</span><span class="s4">contact delete </span><span class="s1">&lt;</span><span class="s4">event index</span><span class="s1">&gt; &lt;</span><span class="s4">contact index</span><span class="s1">&gt;</span><span class="s0">`</span>
+<span class="s1">This deletes a specified contact.</span>
+
+<span class="s0">==== View contact</span>
+<span class="s1">Format: </span><span class="s0">`</span><span class="s4">contact view </span><span class="s1">&lt;</span><span class="s4">event index</span><span class="s1">&gt;</span><span class="s0">`</span>
+<span class="s1">This displays the contacts list of a specified event.</span>
+
+<span class="s0">==== Edit contact item</span>
+<span class="s1">Format: </span><span class="s0">`</span><span class="s4">contact edit </span><span class="s1">&lt;</span><span class="s4">event index</span><span class="s1">&gt; &lt;</span><span class="s4">contact index</span><span class="s1">&gt; &lt;</span><span class="s4">edit type</span><span class="s1">&gt; </span><span class="s4">/</span><span class="s1">&lt;</span><span class="s4">new contact information</span><span class="s1">&gt;</span><span class="s0">` </span><span class="s1">This edits an existing</span>
+<span class="s1">contact. </span><span class="s0">+ 
+</span><span class="s1">The edit types are name, email, and phone.</span>
+
+<span class="s0">==== Storing contact lists in a text file : `[coming v2.0]`</span>
+<span class="s1">Contact lists now cannot be seen after restarting MisterMusik. In future, contact lists will be stored into a text file</span>
+<span class="s1">automatically. The user will be able to edit them in the text file.</span>
+
+<span class="s0">=== Goals list : `goal`</span>
+<span class="s1">Goals list of each event helps the user keep track of the outcome that they wishes to achieve by the end of the event.</span>
+<span class="s1">The user is able to add, edit, delete or set a goal as achieved.</span>
+
+<span class="s0">==== Adding a goal</span>
+<span class="s0">`</span><span class="s4">goal add </span><span class="s1">&lt;</span><span class="s4">event index</span><span class="s1">&gt;</span><span class="s4">/</span><span class="s1">&lt;</span><span class="s4">input goal</span><span class="s1">&gt;</span><span class="s0">`</span>
+<span class="s1">This adds a goal to a specific event.</span>
+
+<span class="s0">==== Editing a goal</span>
+<span class="s0">`</span><span class="s4">goal edit </span><span class="s1">&lt;</span><span class="s4">event index</span><span class="s1">&gt; &lt;</span><span class="s4">goal index</span><span class="s1">&gt;</span><span class="s4">/</span><span class="s1">&lt;</span><span class="s4">new input goal</span><span class="s1">&gt;</span><span class="s0">`</span>
+<span class="s1">This edits an existing goal.</span>
+
+<span class="s0">==== Deleting a goal</span>
+<span class="s0">`</span><span class="s4">goal delete </span><span class="s1">&lt;</span><span class="s4">event index</span><span class="s1">&gt; &lt;</span><span class="s4">goal index</span><span class="s1">&gt;</span><span class="s0">`</span>
+<span class="s1">This deletes a specified goal.</span>
+
+<span class="s0">==== Setting a goal as achieved</span>
+<span class="s0">`</span><span class="s4">goal achieved </span><span class="s1">&lt;</span><span class="s4">event index</span><span class="s1">&gt; &lt;</span><span class="s4">goal index</span><span class="s1">&gt;</span><span class="s0">`</span>
+<span class="s1">This sets the specified goal as achieved.</span>
+
+<span class="s0">==== Viewing the goal list</span>
+<span class="s0">`</span><span class="s4">goal view </span><span class="s1">&lt;</span><span class="s4">event index</span><span class="s1">&gt;</span><span class="s0">`</span>
+<span class="s1">This displays the goals list of a specified event along with their status - whether a goal is achieved or not.</span>
+
+<span class="s0">==== Storing goals lists in a text file : `[coming v2.0]`</span>
+<span class="s1">Like the contact lists, the goal lists now cannot be seen after restarting MisterMusik. In future, goal lists will be stored</span>
+<span class="s1">into a text file automatically. The user will be able to edit them in the text file.</span>
+
+<span class="s0">=== Checklists : `checklist`</span>
+<span class="s1">Checklist of each event can be used to remind users of certain items (e.g. bring glasses to concert).</span>
+<span class="s1">This is implemented by storing an array list of strings in </span><span class="s0">`</span><span class="s4">Event</span><span class="s0">` </span><span class="s1">objects.</span>
+<span class="s1">Storing checklist data to files will be available in v2.0.</span>
+
+<span class="s1">Checklist implementation contains 4 operations:</span>
+
+<span class="s0">==== add checklist item</span>
+<span class="s0">`</span><span class="s4">checklist add </span><span class="s1">&lt;</span><span class="s4">event index</span><span class="s1">&gt;</span><span class="s4">/</span><span class="s1">&lt;</span><span class="s4">checklist item</span><span class="s1">&gt;</span><span class="s0">`</span>
+<span class="s1">This adds an item to a specific event's checklist.</span>
+
+<span class="s0">==== view checklist</span>
+<span class="s0">`</span><span class="s4">checklist view </span><span class="s1">&lt;</span><span class="s4">event index</span><span class="s1">&gt;</span><span class="s0">`</span>
+<span class="s1">This displays the checklist of a specified event.</span>
+
+<span class="s0">==== edit checklist item</span>
+<span class="s0">`</span><span class="s4">checklist edit </span><span class="s1">&lt;</span><span class="s4">event index</span><span class="s1">&gt; &lt;</span><span class="s4">item index</span><span class="s1">&gt;</span><span class="s4">/</span><span class="s1">&lt;</span><span class="s4">new item</span><span class="s1">&gt;</span><span class="s0">`</span>
+<span class="s1">This edits a specific item in the checklist of an event.</span>
+
+<span class="s0">==== delete checklist item</span>
+<span class="s0">`</span><span class="s4">checklist delete </span><span class="s1">&lt;</span><span class="s4">event index</span><span class="s1">&gt; &lt;</span><span class="s4">item index</span><span class="s1">&gt;</span><span class="s0">`</span>
+<span class="s1">This deletes an item from the checklist of an event.</span>
+
+<span class="s0">=== Budget handling : `budget`</span>
+<span class="s0">==== Viewing monthly costs of concerts</span>
+<span class="s1">The total cost of concerts each month can be viewed by the user using the </span><span class="s0">`</span><span class="s4">budget</span><span class="s0">` </span><span class="s1">command.</span>
+
+<span class="s1">Format: </span><span class="s0">`</span><span class="s4">budget MM-yyyy</span><span class="s0">` </span><span class="s1">symbolising the month and year the user wishes to take a look at. </span><span class="s0">+ 
+</span><span class="s1">Note: MM must be a two digit value. For example, the month of may, 2019 must be entered as</span>
+<span class="s0">`</span><span class="s4">05-2019</span><span class="s0">` </span><span class="s1">instead of </span><span class="s0">`</span><span class="s4">5-2019</span><span class="s0">`</span><span class="s1">.</span>
+
+<span class="s0">==== Setting new monthly budget</span>
+<span class="s1">The user is able to set the budget for concerts of each month by using the </span><span class="s0">`</span><span class="s4">budget</span><span class="s0">` </span><span class="s1">command.</span>
+
+<span class="s1">Format: </span><span class="s0">`</span><span class="s4">budget set </span><span class="s1">&lt;</span><span class="s4">new budget</span><span class="s1">&gt;</span><span class="s0">` + 
+</span><span class="s1">FOR example, </span><span class="s0">`</span><span class="s4">budget set 87</span><span class="s0">` </span><span class="s1">will set the budget for every month to $87.</span>
+
+<span class="s0">NOTE: </span><span class="s1">Storing the user-defined budget to a txt file upon shutdown will be added in [v2.0]</span>
+
+<span class="s0">=== Instruments handling : `instruments`</span>
+<span class="s1">This function allows the user to store maintenance information about the instruments that the user possesses.</span>
+
+<span class="s0">==== Adding an instrument</span>
+<span class="s0">`</span><span class="s4">instrument add /</span><span class="s1">&lt;</span><span class="s4">instrument name</span><span class="s1">&gt;</span><span class="s0">`</span>
+<span class="s1">This adds an instrument named </span><span class="s0">`</span><span class="s1">&lt;</span><span class="s4">instrument name</span><span class="s1">&gt;</span><span class="s0">` </span><span class="s1">to the list of instruments stored in the system.</span>
+
+<span class="s0">==== Viewing list of instruments stored in the system</span>
+<span class="s0">`</span><span class="s4">instrument view instruments</span><span class="s0">`</span>
+<span class="s1">This lists out the instruments stored in the system in order of their indexes.</span>
+
+<span class="s0">==== Servicing an instrument</span>
+<span class="s0">`</span><span class="s4">instrument service </span><span class="s1">&lt;</span><span class="s4">instrument index</span><span class="s1">&gt; </span><span class="s4">/</span><span class="s1">&lt;</span><span class="s4">brief description of servicing</span><span class="s1">&gt; </span><span class="s4">/</span><span class="s1">&lt;</span><span class="s4">date</span><span class="s1">&gt;</span><span class="s0">`</span>
+<span class="s1">This adds the information that the instrument with instrument index </span><span class="s0">`</span><span class="s1">&lt;</span><span class="s4">instrument index</span><span class="s1">&gt;</span><span class="s0">` </span><span class="s1">is serviced on </span><span class="s0">`</span><span class="s1">&lt;</span><span class="s4">date</span><span class="s1">&gt;</span><span class="s0">`</span><span class="s1">.</span>
+
+<span class="s0">==== Viewing list of instruments stored in the system</span>
+<span class="s0">`</span><span class="s4">instrument view services </span><span class="s1">&lt;</span><span class="s4">instrument index</span><span class="s1">&gt;</span><span class="s0">`</span>
+<span class="s1">This lists out the servicing done to the instrument with instrument index </span><span class="s0">`</span><span class="s1">&lt;</span><span class="s4">instrument index</span><span class="s1">&gt;</span><span class="s0">`</span><span class="s1">.</span>
+
+<span class="s0">=== Exiting the program : `bye`</span>
+
+<span class="s1">Exits the program. </span><span class="s0">+ 
+</span>
+<span class="s1">Format: </span><span class="s0">`</span><span class="s4">bye</span><span class="s0">`</span>
+
+<span class="s0">=== Rating a practice session : `[coming v2.0]`</span>
+
+<span class="s1">The user will be able to rate the efficiency of a particular practice session after completing it.</span>
+<span class="s1">When the practice session is marked as done,</span>
+<span class="s1">the user will be prompted to add an efficiency rating and any extra comments or feedback. </span><span class="s0">+ 
+</span>
+<span class="s1">Format: </span><span class="s0">`</span><span class="s4">rate </span><span class="s1">&lt;</span><span class="s4">task index</span><span class="s1">&gt;</span><span class="s0">`</span>
+
+<span class="s0">=== Adding details to events : `[coming v2.0]`</span>
+
+<span class="s1">The user will be able to add any extra details to an event when adding it to the task list.</span>
+<span class="s1">For practice sessions or lessons,</span>
+<span class="s1">it can be used to take feedback from instructors and lesson notes respectively. </span><span class="s0">+ 
+</span>
+<span class="s1">Format: </span><span class="s0">`</span><span class="s4">details </span><span class="s1">&lt;</span><span class="s4">task index</span><span class="s1">&gt;</span><span class="s0">` </span><span class="s1">or </span><span class="s0">`</span><span class="s4">notes </span><span class="s1">&lt;</span><span class="s4">task index</span><span class="s1">&gt;</span><span class="s0">`</span>
+
+<span class="s0">=== Searching for a free slot : `[coming v2.0]`</span>
+
+<span class="s1">The user will be able to search for any days within the next 2 weeks</span>
+<span class="s1">that contains a specified period of time that is free. </span><span class="s0">+ 
+</span><span class="s1">For example, searching for a 4h free slot</span>
+<span class="s1">will display all the dates within the 2 weeks with</span>
+<span class="s1">at least 4 hours of free time in the schedule. </span><span class="s0">+ 
+</span>
+<span class="s1">Format: </span><span class="s0">`</span><span class="s4">searchfree 4h</span><span class="s0">`</span>
+
+<span class="s0">== Additional Features</span>
+
+<span class="s0">=== Detecting Clashes :</span>
+
+<span class="s1">When the user inputs a new event, MisterMusik will check</span>
+<span class="s1">if it has any clashing date and time with existing events</span>
+<span class="s1">and warns the user of the clash. This also detects clashes</span>
+<span class="s1">when recurring events are entered, so there is no need</span>
+<span class="s1">to manually check for schedule clashes.</span>
+
+<span class="s0">=== Sorting By Date :</span>
+
+<span class="s1">MisterMusik will automatically sort the list by the date and time of each task</span>
+<span class="s1">so the user will not have to manually prioritise each event and todo task. ToDos</span>
+<span class="s1">are listed at the front of each day as they do not have an included time.</span>
+
+<span class="s0">=== Budget handling system :</span>
+
+<span class="s1">The system allows for the user to handle their own monthly budget. There is a set budget</span>
+<span class="s1">for each month (fixed at $50 initially) that stops users from entering new concerts into</span>
+<span class="s1">the schedule if that new concert would cause the costs of concerts for the month to exceed</span>
+<span class="s1">the stipulated budget.</span>
+
+<span class="s1">For example, if the list contains a concert on the 4th of July, 2019 that costs $49,</span>
+<span class="s1">entering a new concert that costs more than a dollar would causes the system to cancel the</span>
+<span class="s1">operation as it would lead to monthly costs of $51 that exceeds the monthly budget of $50.</span>
+
+<span class="s1">The user also has the ability to change the stipulated budget for each month or universally if</span>
+<span class="s1">he/she wishes to.</span>
+
+<span class="s0">=== Reminder for specific task types : `[coming v2.0]`</span>
+
+<span class="s1">The user will be able to get reminders of specific task type using the reminder command</span>
+<span class="s1">and specifying which type they would like to be displayed. </span><span class="s0">+ 
+</span>
+<span class="s1">E.g. “reminder exam”</span>
+<span class="s1">displays a reminder of all exam events within the next 3 days.</span>
+
+<span class="s0">== FAQ</span>
+<span class="s0">*</span><span class="s1">Q:</span><span class="s0">* </span><span class="s1">How do I transfer my data to another Computer? </span><span class="s0">+ 
+*</span><span class="s1">A:</span><span class="s0">* </span><span class="s1">Install the app in the other computer and overwrite the empty data file</span>
+<span class="s1">it creates with the file that contains the data of your previous MisterMusik folder.</span>
+
+
+<span class="s0">== Glossary</span>
+
+<span class="s0">. </span><span class="s1">Event: an event refers to any activity with a start and end time, includes</span>
+<span class="s1">concerts, practices, exams, and recitals.</span>
+<span class="s0">+</span>
+<span class="s0">. </span><span class="s1">Todo: a todo refers to a task with a deadline specified by the user.</span>
+</pre>
+</body>
+</html>

@@ -1,0 +1,1152 @@
+<html>
+<head>
+<title>DeveloperGuide.adoc</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #a9b7c6;}
+.s3 { color: #6a8759;}
+.s4 { color: #a9b7c6;}
+.s5 { color: #a9b7c6; font-style: italic;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+DeveloperGuide.adoc</font>
+</center></td></tr></table>
+<pre><span class="s0">= MisterMusik - Developer Guide</span>
+<span class="s0">:</span><span class="s2">icons</span><span class="s0">: </span><span class="s3">font</span>
+<span class="s0">:</span><span class="s2">site-section</span><span class="s0">: </span><span class="s3">DevelopGuide</span>
+<span class="s0">:</span><span class="s2">toc</span><span class="s0">:</span>
+<span class="s0">:</span><span class="s2">toc-title</span><span class="s0">:</span>
+<span class="s0">:</span><span class="s2">toc-placement</span><span class="s0">: </span><span class="s3">preamble</span>
+<span class="s0">:</span><span class="s2">sectnums</span><span class="s0">:</span>
+<span class="s0">:</span><span class="s2">imagesDir</span><span class="s0">: </span><span class="s3">images</span>
+<span class="s0">:</span><span class="s2">stylesDir</span><span class="s0">: </span><span class="s3">stylesheets</span>
+<span class="s0">:</span><span class="s2">xrefstyle</span><span class="s0">: </span><span class="s3">full</span>
+<span class="s0">:</span><span class="s2">experimental</span><span class="s0">:</span>
+<span class="s0">ifdef::env-github[]</span>
+<span class="s0">:</span><span class="s2">tip-caption</span><span class="s0">: </span><span class="s3">:bulb:</span>
+<span class="s0">:</span><span class="s2">note-caption</span><span class="s0">: </span><span class="s3">:information_source:</span>
+<span class="s0">endif::[]</span>
+<span class="s0">:</span><span class="s2">repoURL</span><span class="s0">: </span><span class="s3">https://github.com/AY1920S1-CS2113T-F11-4/main</span>
+
+<span class="s1">By: </span><span class="s0">`</span><span class="s4">Team CS2113T-F11-4</span><span class="s0">`      </span><span class="s1">Since: </span><span class="s0">`</span><span class="s4">Aug 2019</span><span class="s0">`      </span><span class="s1">Licence: </span><span class="s0">`</span><span class="s4">MIT</span><span class="s0">`</span>
+
+
+<span class="s0">== Setting up</span>
+<span class="s0">=== Prerequisites</span>
+<span class="s0">. *</span><span class="s1">JDK 11</span><span class="s0">* </span><span class="s1">or above is required</span>
+<span class="s0">. *</span><span class="s1">IntelliJ</span><span class="s0">* </span><span class="s1">IDE is recommended</span>
+<span class="s0">[</span><span class="s1">NOTE</span><span class="s0">]</span>
+<span class="s1">IntelliJ by default has Gradle plugin installed. </span><span class="s0">+ 
+ </span><span class="s1">Do not disable them. If you have disabled them, go to </span><span class="s0">`</span><span class="s4">File</span><span class="s0">` </span><span class="s1">&gt; </span><span class="s0">`</span><span class="s4">Settings</span><span class="s0">` </span><span class="s1">&gt; </span><span class="s0">`</span><span class="s4">Plugins</span><span class="s0">` </span><span class="s1">to re-enable them.</span>
+
+<span class="s0">=== Setting up the project environment on your local machine</span>
+<span class="s0">. </span><span class="s1">Fork and clone the forked remote on your local machine</span>
+<span class="s0">. </span><span class="s1">Launch IntelliJ (If you’re not on the IntelliJ Welcome screen please close your existing project by going to </span><span class="s0">`</span><span class="s4">File</span><span class="s0">` </span><span class="s1">&gt;</span>
+<span class="s0">`</span><span class="s4">Close Project</span><span class="s0">`</span><span class="s1">)</span>
+<span class="s0">. </span><span class="s1">Set up the correct JDK version for Gradle</span>
+<span class="s0">.. </span><span class="s1">Click </span><span class="s0">`</span><span class="s4">Configure</span><span class="s0">` </span><span class="s1">&gt; </span><span class="s0">`</span><span class="s4">Structure for New Projects</span><span class="s0">`</span>
+<span class="s0">.. </span><span class="s1">Under </span><span class="s0">`</span><span class="s4">Project Settings</span><span class="s0">` </span><span class="s1">Click on </span><span class="s0">`</span><span class="s4">Project</span><span class="s0">`</span>
+<span class="s0">.. </span><span class="s1">Under </span><span class="s0">`</span><span class="s4">Project SDK</span><span class="s0">` </span><span class="s1">Click </span><span class="s0">`</span><span class="s4">New…</span><span class="s0">` </span><span class="s1">and point it to JDK 11 path</span>
+<span class="s0">.. </span><span class="s1">Click </span><span class="s0">`</span><span class="s4">OK</span><span class="s0">` </span><span class="s1">to save the configuration</span>
+<span class="s0">. </span><span class="s1">Click </span><span class="s0">`</span><span class="s4">Import Project</span><span class="s0">`</span>
+<span class="s0">. </span><span class="s1">Locate the </span><span class="s0">`</span><span class="s4">build.gradle</span><span class="s0">` </span><span class="s1">file and select it. Click </span><span class="s0">`</span><span class="s4">Open</span><span class="s0">`</span>
+<span class="s0">. </span><span class="s1">Open the IntelliJ console/terminal and run the gradle command </span><span class="s0">`</span><span class="s4">gradlew processResource</span><span class="s0">` </span><span class="s1">on </span><span class="s0">*</span><span class="s1">Windows</span><span class="s0">* </span><span class="s1">or</span>
+<span class="s0">`</span><span class="s4">./gradlew processResource</span><span class="s0">` </span><span class="s1">on </span><span class="s0">*</span><span class="s1">Mac/Linux</span><span class="s0">* </span><span class="s1">(If you are encountered a permission error: </span><span class="s0">`</span><span class="s4">./gradlew: Permission denied</span><span class="s0">`</span>
+<span class="s1">add the executable permission to the shell script by running </span><span class="s0">`</span><span class="s4">chmod 744 gradlew</span><span class="s0">` </span><span class="s1">in your terminal) It should finish</span>
+<span class="s1">with the </span><span class="s0">`</span><span class="s4">BUILD SUCCESSFUL</span><span class="s0">` </span><span class="s1">message. This will generate the resources required by the application and tests.</span>
+
+<span class="s0">=== Verifying the setup</span>
+<span class="s0">. </span><span class="s1">Run MisterMusik to verify and try a few commands.</span>
+<span class="s0">. </span><span class="s1">Run the JUNIT Test/gradlew test command to ensure that all the test case passes.</span>
+
+<span class="s0">== Design</span>
+<span class="s0">=== Overall Architecture</span>
+<span class="s1">This image shows the overall architecture of our program</span>
+
+<span class="s0">image::</span><span class="s1">Architecture main.png</span><span class="s0">[</span><span class="s1">width = 500%</span><span class="s0">]</span>
+
+<span class="s0">=== Main component</span>
+<span class="s1">Main component has one class called </span><span class="s0">`</span><span class="s4">Duke</span><span class="s0">`</span><span class="s1">. It is responsible for the following: </span><span class="s0">+ 
+</span>
+<span class="s0">. </span><span class="s1">On startup: Initializes all components and sets up the correct file path so that the program correctly interacts</span>
+<span class="s1">with the external txt file.</span>
+<span class="s0">. </span><span class="s1">During runtime: Acts as an intermediary between the </span><span class="s0">`</span><span class="s4">Parser</span><span class="s0">` </span><span class="s1">class and the </span><span class="s0">`</span><span class="s4">Command</span><span class="s0">` </span><span class="s1">so that user input can be parsed</span>
+<span class="s1">and then executed accordingly.</span>
+<span class="s0">. </span><span class="s1">On shutdown: Interacts with the UI class to communicate the shutdown message to the user.</span>
+
+<span class="s0">=== UI component</span>
+<span class="s1">UI component contains all classes necessary to interact successfully with the user. The </span><span class="s0">`</span><span class="s4">Parser</span><span class="s0">` </span><span class="s1">parses input commands</span>
+<span class="s1">from the user whilst the </span><span class="s0">`</span><span class="s4">UI</span><span class="s0">` </span><span class="s1">class handles all necessary dissemination of information to the user through </span><span class="s0">`</span><span class="s4">System.out</span><span class="s0">`</span><span class="s1">.</span>
+
+<span class="s0">=== Logic component</span>
+<span class="s1">This component contains all necessary classes that :</span>
+
+<span class="s0">. </span><span class="s1">Are in charge of handling how all necessary information is internally stored within the program's runtime.</span>
+<span class="s0">. </span><span class="s1">Alter the internally stored information whenever necessary (i.e when changes are made by the user).</span>
+<span class="s0">. </span><span class="s1">Extract information requested by the user from the stored information and pass them back to the user through the UI</span>
+<span class="s1">component</span>
+<span class="s0">. </span><span class="s1">This is achieved through the two classes </span><span class="s0">`</span><span class="s4">EventList</span><span class="s0">` </span><span class="s1">and </span><span class="s0">`</span><span class="s4">Command</span><span class="s0">`</span><span class="s1">. </span><span class="s0">`</span><span class="s4">EventList</span><span class="s0">` </span><span class="s1">decides how information is stored</span>
+<span class="s1">internally as well as how internal stored information is altered and/or extracted. </span><span class="s0">`</span><span class="s4">Command</span><span class="s0">` </span><span class="s1">commands the </span><span class="s0">`</span><span class="s4">EventList</span><span class="s0">`</span>
+<span class="s1">class on what needs to be done at any point in time.</span>
+
+<span class="s0">=== Storage component</span>
+<span class="s1">This component contains all necessary classes that read and write external txt files. This is where all information is</span>
+<span class="s1">stored while the program is not running. </span><span class="s0">+ 
+</span><span class="s1">In particular, the </span><span class="s0">`</span><span class="s4">Storage</span><span class="s0">` </span><span class="s1">class directly reads from and writes to and external txt file in the data directory.</span>
+
+<span class="s0">=== Commons</span>
+<span class="s1">This component represent all other low-level classes required for the program to function. </span><span class="s0">+ 
+</span><span class="s1">This includes classes like the </span><span class="s0">`</span><span class="s4">Event</span><span class="s0">` </span><span class="s1">class which is the abstract parent class for all the types of classes that</span>
+<span class="s1">represent the different types of events(</span><span class="s0">`</span><span class="s4">ToDo</span><span class="s0">`</span><span class="s1">, </span><span class="s0">`</span><span class="s4">Concert</span><span class="s0">`</span><span class="s1">, </span><span class="s0">`</span><span class="s4">Exam</span><span class="s0">`</span><span class="s1">, etc.) a user can input as an entry in the program.</span>
+
+<span class="s1">This image shows the sequence diagram when a user input &quot;delete 1&quot; is entered.</span>
+
+<span class="s0">image::</span><span class="s1">sequenceDiagramDeleteEvent.png</span><span class="s0">[</span><span class="s1">&quot;SequenceDiag&quot;</span><span class="s0">, </span><span class="s1">5000</span><span class="s0">, </span><span class="s1">align=center</span><span class="s0">]</span>
+
+
+<span class="s0">== Implementation</span>
+<span class="s1">This section describes some noteworthy details on how certain features are implemented.</span>
+
+<span class="s0">=== Calendar Table</span>
+<span class="s1">The calendar table is generated from the </span><span class="s0">`</span><span class="s4">EventList</span><span class="s0">`</span><span class="s1">. It prints on the screen a table of calendar of 7 days</span>
+<span class="s1">starting from a specified day, including the events within this time period. </span><span class="s0">+ 
+</span>
+<span class="s0">==== Sequence diagram</span>
+<span class="s1">Below is the sequence diagram of calendarView.</span>
+
+<span class="s0">image::</span><span class="s1">calendar_sequenceDiagram.png</span><span class="s0">[</span><span class="s1">width = &quot;800&quot;</span><span class="s0">]</span>
+
+<span class="s0">==== How it is implemented</span>
+<span class="s1">Given below is the sequential steps of how a calendar table is generated and printed.</span>
+
+<span class="s1">Step 1. User enters </span><span class="s0">`</span><span class="s4">calendar</span><span class="s0">` </span><span class="s1">to start the initialization process of a calendar table with today as the starting day.</span>
+
+<span class="s1">Step 2. The program checks the date of the given start day to generate a list of 7 days, starting from given day.</span>
+<span class="s1">It also gets the day of the 7 days (e.g. Monday, Tuesday, etc). This sets the dates info of the table.</span>
+
+<span class="s1">E.g. Example of a day and dates list</span>
+
+<span class="s0">image::</span><span class="s1">DGCalendarTableDaysList.png</span><span class="s0">[</span><span class="s1">width = &quot;600&quot;</span><span class="s0">]</span>
+
+<span class="s1">Step 3. The program find all events in the </span><span class="s0">`</span><span class="s4">EventList</span><span class="s0">` </span><span class="s1">that is within the 7 days,</span>
+<span class="s1">and store them correspondingly into 7 queues, representing the 7 days. This is for further printing.</span>
+
+<span class="s1">E.g. Example of an event list of 7 days</span>
+
+<span class="s0">image::</span><span class="s1">DGCalendarTableExample.png</span><span class="s0">[</span><span class="s1">width = &quot;600&quot;</span><span class="s0">]</span>
+
+<span class="s1">Step 4. The program now have all the information of these 7 days and is then able to print the calendar table.</span>
+
+<span class="s0">. </span><span class="s1">It initiates an empty string to store all info of the calendar and for later printing.</span>
+<span class="s0">. </span><span class="s1">It puts the header of the table into the string.</span>
+<span class="s0">. </span><span class="s1">It puts the days of week and dates info into the string.</span>
+<span class="s0">. </span><span class="s1">To add in events, each event takes 3 rows (time info, description, and dashes) to print. For each 3 rows,</span>
+<span class="s1">there can be at most 7 events. The events are added per 3 rows. For each 3 rows, the program creates an array of 3 * 7</span>
+<span class="s1">to store the details. Whenever there exists an event at the position of a day, details of the event will be added to</span>
+<span class="s1">the corresponding 3 rows (1 column) of the array. The array is then added by rows into the string.</span>
+
+<span class="s1">E.g. Example of a row of events stored for printing</span>
+
+<span class="s0">image::</span><span class="s1">DGCalendarTableRow.png</span><span class="s0">[</span><span class="s1">width = &quot;600&quot;</span><span class="s0">]</span>
+
+<span class="s0">==== Commands for CalendarView</span>
+<span class="s0">- `</span><span class="s4">calendar</span><span class="s0">` </span><span class="s1">This prints the calendar table of this 7 days.</span>
+<span class="s0">- `</span><span class="s4">calendar next</span><span class="s0">` </span><span class="s1">This prints the calendar table of the next 7 days.</span>
+<span class="s0">- `</span><span class="s4">calendar last</span><span class="s0">` </span><span class="s1">This prints the calendar table of the last 7 days.</span>
+<span class="s0">- `</span><span class="s4">calendar on</span><span class="s0">` </span><span class="s1">Allow the calendar to be printed after every command execution.</span>
+<span class="s0">- `</span><span class="s4">calendar off</span><span class="s0">` </span><span class="s1">Not allowing the calendar to be printed after every command execution.</span>
+
+<span class="s0">=== Check Free Days</span>
+<span class="s1">CheckFreeDays is a command that allows the program to search for the next 3 days without any</span>
+<span class="s1">events (except ToDos). </span><span class="s0">+ 
+</span>
+<span class="s0">. </span><span class="s1">When the user enters </span><span class="s0">`</span><span class="s4">check</span><span class="s0">`</span><span class="s1">, starting from the current day, the program</span>
+<span class="s1">checks all the events whether any is in this day.</span>
+<span class="s0">. </span><span class="s1">If not, this day will be added into a list.</span>
+<span class="s0">. </span><span class="s1">Above process will continue until the list has 3 days, which will then be printed.</span>
+
+<span class="s1">The following activity diagram shows how check free days is implemented.</span>
+
+<span class="s0">image::</span><span class="s1">check_activityDiagram.png</span><span class="s0">[</span><span class="s1">width = &quot;800&quot;</span><span class="s0">]</span>
+
+<span class="s0">=== Checklists</span>
+<span class="s1">Checklist of each event can be used to remind users of certain items (e.g. bring glasses to concert).</span>
+<span class="s1">This is implemented by storing an array list of strings in </span><span class="s0">`</span><span class="s4">Event</span><span class="s0">` </span><span class="s1">objects.</span>
+<span class="s1">Storing checklist data to files will be available in v2.0.</span>
+
+<span class="s1">Checklist implementation contains 4 operations:</span>
+
+<span class="s0">==== add checklist item</span>
+<span class="s0">`</span><span class="s4">checklist add </span><span class="s1">&lt;</span><span class="s4">event index</span><span class="s1">&gt;</span><span class="s4">/</span><span class="s1">&lt;</span><span class="s4">checklist item</span><span class="s1">&gt;</span><span class="s0">`</span>
+<span class="s1">This adds an item into a specific event's checklist.</span>
+
+<span class="s0">==== view checklist</span>
+<span class="s0">`</span><span class="s4">checklist view </span><span class="s1">&lt;</span><span class="s4">event index</span><span class="s1">&gt;</span><span class="s0">`</span>
+<span class="s1">This prints on the screen the checklist of an event.</span>
+
+<span class="s0">==== edit checklist item</span>
+<span class="s0">`</span><span class="s4">checklist edit </span><span class="s1">&lt;</span><span class="s4">event index</span><span class="s1">&gt; &lt;</span><span class="s4">item index</span><span class="s1">&gt;</span><span class="s4">/</span><span class="s1">&lt;</span><span class="s4">new item</span><span class="s1">&gt;</span><span class="s0">`</span>
+<span class="s1">This edits a specific item in the checklist of an event.</span>
+
+<span class="s0">==== delete checklist item</span>
+<span class="s0">`</span><span class="s4">checklist delete </span><span class="s1">&lt;</span><span class="s4">event index</span><span class="s1">&gt; &lt;</span><span class="s4">item index</span><span class="s1">&gt;</span><span class="s0">`</span>
+<span class="s1">This deletes an item from the checklist of an event.</span>
+
+<span class="s0">=== Clash handling</span>
+<span class="s0">==== Activity diagram</span>
+<span class="s1">The following activity diagram represents a typical clash handling scenario</span>
+
+<span class="s0">image::</span><span class="s1">Activity Diagram Clash handling.png</span><span class="s0">[</span><span class="s1">Clash Handling</span><span class="s0">, </span><span class="s1">1600</span><span class="s0">, </span><span class="s1">align=center</span><span class="s0">]</span>
+
+<span class="s0">==== How is it implemented</span>
+<span class="s1">The program is able to </span><span class="s0">*</span><span class="s1">detect clashes when creating new events</span><span class="s0">*</span><span class="s1">. When the user enters the command</span>
+<span class="s1">to add a new Event entry to the list, the method </span><span class="s0">`</span><span class="s4">EventList.addEvent</span><span class="s0">` </span><span class="s1">is called from the </span><span class="s0">`</span><span class="s4">Command</span><span class="s0">`</span>
+<span class="s1">class object upon execution.</span>
+
+<span class="s1">The </span><span class="s0">`</span><span class="s4">addEvent</span><span class="s0">` </span><span class="s1">method will then call the </span><span class="s0">`</span><span class="s4">EventList.clashEvent</span><span class="s0">` </span><span class="s1">method to check the</span>
+<span class="s1">existing entries for any clash in schedule. This is done by first searching the list for an event</span>
+<span class="s1">that has a matching date with the new event.</span>
+
+<span class="s1">If no such event is found, the method returns a </span><span class="s0">*_</span><span class="s1">null</span><span class="s0">_* </span><span class="s1">value, indicating that there is no schedule clash.</span>
+<span class="s1">If an event is found with a matching date, the </span><span class="s0">`</span><span class="s4">clashEvent</span><span class="s0">` </span><span class="s1">then calls the </span><span class="s0">`</span><span class="s4">EventList.timeClash</span><span class="s0">` </span><span class="s1">method to check whether</span>
+<span class="s1">the two events have overlapping time periods.</span>
+
+<span class="s1">If there is any overlap, the </span><span class="s0">`</span><span class="s4">timeClash</span><span class="s0">` </span><span class="s1">method will return </span><span class="s0">*_</span><span class="s1">true</span><span class="s0">_* </span><span class="s1">as a boolean, indicating there is a schedule clash.</span>
+<span class="s1">The </span><span class="s0">`</span><span class="s4">clashEvent</span><span class="s0">` </span><span class="s1">method then throws an exception </span><span class="s0">`</span><span class="s4">ClashException</span><span class="s0">`</span><span class="s1">, indicating that there was indeed a schedule</span>
+<span class="s1">clash between the desired new entry and some pre-existing Event.</span>
+
+<span class="s1">The details of the clashing Event are passed back to </span><span class="s0">`</span><span class="s4">Command</span><span class="s0">` </span><span class="s1">object via the exception so that it can be used to inform the</span>
+<span class="s1">user about the clashing event. The user is then required to fix the conflict before continuing,</span>
+<span class="s1">either by rescheduling or deleting the pre-existing event, or by choosing a different date/time for</span>
+<span class="s1">the new Event entry.</span>
+
+<span class="s0">==== Why it is implemented this way</span>
+<span class="s1">The process of checking for a clash was implemented as small, simple components so as to ensure scalability,</span>
+<span class="s1">reliability, and to reduce dependencies.</span>
+
+<span class="s1">The choice to use exception handling to deal with an event clash</span>
+<span class="s1">was done so that it could be easily re-purposed for any incremental extension that required checking for a</span>
+<span class="s1">schedule clash. Catching of the ClashException should be performed in the Command class, and the info regarding the</span>
+<span class="s1">schedule clash can be easily obtained for further action.</span>
+
+<span class="s1">By having the </span><span class="s0">`</span><span class="s4">clashEvent</span><span class="s0">` </span><span class="s1">method return a </span><span class="s0">*_</span><span class="s1">null</span><span class="s0">_* </span><span class="s1">value or a reference to a clashing event in the schedule, the</span>
+<span class="s0">`</span><span class="s4">clashEvent</span><span class="s0">` </span><span class="s1">method can now be used for any further increments to the code requiring addition of events.</span>
+
+<span class="s1">It was thus easy to implement this clash detection as a part of adding recurrent events</span>
+<span class="s1">(to check for clashes when recurrent events were automatically entered) as well as the</span>
+<span class="s1">rescheduling function (to check for clashes when the user attempts to reschedule</span>
+<span class="s1">an existing event, so that he/she does not inadvertently create a new schedule conflict).</span>
+
+<span class="s1">This implementation is reliable because it can always be expected to work whenever it is necessary to add</span>
+<span class="s1">new events to the list, provided the unit tests for this functionality under MainTest work. It is also not</span>
+<span class="s1">dependent on any other functionality, allowing for developers to change the implementation of other parts of the</span>
+<span class="s1">application without affecting the clash handling</span>
+
+<span class="s0">==== Expected behaviour of functionality</span>
+<span class="s1">When a user attempts to add an event(recurring or otherwise) and the program detects a clash with an existing event</span>
+<span class="s1">in the pre-existing list, the following output should be printed: </span><span class="s0">+ 
+</span>
+    <span class="s1">&quot;That event clashes with another in the schedule! Please resolve the conflict and try again!&quot;</span>
+
+<span class="s1">This is followed by the following line indicating the details of the detected clash: </span><span class="s0">+ 
+</span>
+    <span class="s1">&quot;Clashes with: [E][X] YST Final project review START: Tue, 03 Dec 2019, 15:00 END: Tue, 03 Dec 2019, 18:00</span>
+
+<span class="s0">==== Design considerations</span>
+<span class="s1">While designing the clash handling system, i had to decide how best to: </span><span class="s0">+ 
+</span><span class="s1">1. Detect a clash. </span><span class="s0">+ 
+</span><span class="s1">2. Pass relevant information back to the caller class for further usage. </span><span class="s0">+ 
+</span>
+<span class="s0">|=========================================================</span>
+<span class="s1">|Aspect |Alternative 1 |Alternative 2</span>
+
+<span class="s1">|How clashes were detected |</span>
+<span class="s1">Simple if-else statements instead of using exception handling. </span><span class="s0">+ 
+</span>
+<span class="s1">Pros: Much easier to implement and simpler to work with. </span><span class="s0">+ 
+</span>
+<span class="s1">Cons: Less scalability as it would be harder to integrate the functionality into new features.|</span>
+<span class="s1">Have a specific command/method so that the current list can be checked for a clash at will.</span>
+
+<span class="s1">Pros: Much more flexible, and even more scalable than the current implementation as it would be possible</span>
+<span class="s1">to do anything regarding changes to the list, and then later check for clashes.</span>
+
+<span class="s1">Cons: Much more room for error, since clashes are allowed to exist within the list normally, and are not</span>
+<span class="s1">automatically detected. This could lead to major bugs related to events that overlap each other.</span>
+
+<span class="s1">|How relevant information is passed up the chain|</span>
+<span class="s1">Simply returning the relevant event that caused the clash as a part of the method call. </span><span class="s0">+ 
+</span>
+<span class="s1">Pros: Extremely simple to understand. Easy to implement. No need to deal with exception handling, just</span>
+<span class="s1">code for specific case in the event of a clash. </span><span class="s0">+ 
+</span>
+<span class="s1">Cons: Less scalable. If a developer wants to add more functionality to the clash handling(e.g return more data), he/she</span>
+<span class="s1">would need to return a new object containing the relevant data.|</span>
+<span class="s0">|=========================================================</span>
+
+<span class="s0">=== Add recurring events</span>
+<span class="s0">==== Activity diagram</span>
+<span class="s1">The following is the activity diagram for adding recurring events.</span>
+
+<span class="s0">image::</span><span class="s1">recurringEventActivityDiagram.png</span><span class="s0">[</span><span class="s1">with=&quot;800&quot;</span><span class="s0">, </span><span class="s1">align = center</span><span class="s0">]</span>
+
+<span class="s0">==== How it is implemented</span>
+<span class="s1">The program is able to detect recurring events and their periods when creating new events.</span>
+<span class="s1">When the user enters the command to add a new </span><span class="s0">`</span><span class="s4">Lesson</span><span class="s0">` </span><span class="s1">or </span><span class="s0">`</span><span class="s4">Practice</span><span class="s0">` </span><span class="s1">event with a period (in days) followed,</span>
+<span class="s0">`</span><span class="s4">createNewEvent</span><span class="s0">` </span><span class="s1">method will call </span><span class="s0">`</span><span class="s4">entryForEvent</span><span class="s0">` </span><span class="s1">to get the period. </span><span class="s0">+ 
+</span><span class="s1">If the new event is not a recurring event, the period value will be assigned to </span><span class="s0">`</span><span class="s4">NON-PERIOD</span><span class="s0">` </span><span class="s1">and then call the</span>
+<span class="s0">`</span><span class="s4">addEvent</span><span class="s0">` </span><span class="s1">method in the </span><span class="s0">`</span><span class="s4">EventList</span><span class="s0">` </span><span class="s1">class.</span>
+
+<span class="s1">After getting the period, the </span><span class="s0">`</span><span class="s4">createNewEvent</span><span class="s0">` </span><span class="s1">method will call the </span><span class="s0">`</span><span class="s4">addRecurringEvent</span><span class="s0">` </span><span class="s1">method in the </span><span class="s0">`</span><span class="s4">EventList</span><span class="s0">` </span><span class="s1">class</span>
+<span class="s1">to create and store new events in the eventList. </span><span class="s0">+ 
+</span><span class="s1">The calculation of dates are done by Java Calendar, </span><span class="s0">`</span><span class="s4">Calendar.add</span><span class="s0">` </span><span class="s1">function is called to calculate the startDate</span>
+<span class="s1">and endDate of new events in </span><span class="s0">`</span><span class="s4">Java Date type</span><span class="s0">`</span><span class="s1">. The number of recurring events is depended on the period, since the</span>
+<span class="s1">maximum date between the first recurring event and the last one is up to </span><span class="s0">`</span><span class="s4">ONE_SEMESTER_DAYS</span><span class="s0">` </span><span class="s1">which is assigned to</span>
+<span class="s1">16 weeks (112 days) now. </span><span class="s0">+ 
+</span><span class="s1">When creating the </span><span class="s0">`</span><span class="s4">startEventDate</span><span class="s0">` </span><span class="s1">and </span><span class="s0">`</span><span class="s4">endEventDate</span><span class="s0">` </span><span class="s1">of the new event,</span>
+<span class="s0">`</span><span class="s4">calendar.getTime</span><span class="s0">` </span><span class="s1">is called and the </span><span class="s0">`</span><span class="s4">identifier</span><span class="s0">` </span><span class="s1">in EventDate will be assigned to </span><span class="s0">`</span><span class="s4">DATE_TO_STRING</span><span class="s0">`</span><span class="s1">, so that the</span>
+<span class="s0">`</span><span class="s4">startDateAndTime</span><span class="s0">` </span><span class="s1">and </span><span class="s0">`</span><span class="s4">endDateAndTime</span><span class="s0">` </span><span class="s1">are in </span><span class="s0">`</span><span class="s4">String type</span><span class="s0">`</span><span class="s1">, which fits the requirement of the </span><span class="s0">`</span><span class="s4">Event</span><span class="s0">` </span><span class="s1">class.</span>
+
+<span class="s1">All the events created in the </span><span class="s0">`</span><span class="s4">addRecurringEvent</span><span class="s0">` </span><span class="s1">method will be checked whether having clash with the events in the</span>
+<span class="s1">current eventList and then added in a temporary event list one by one. If no clash happens, the </span><span class="s0">`</span><span class="s4">tempEventList</span><span class="s0">` </span><span class="s1">will</span>
+<span class="s1">be added to the current </span><span class="s0">`</span><span class="s4">eventList</span><span class="s0">`</span><span class="s1">.</span>
+
+<span class="s1">Given below is an example usage scenario compared to adding non-recurring event. </span><span class="s0">+ 
+</span><span class="s1">Recurring event: </span><span class="s0">`</span><span class="s4">lesson|practice</span><span class="s0">` </span><span class="s1">&lt;event description&gt; /dd-MM-yyyy HHmm HHmm </span><span class="s0">`</span><span class="s4">/</span><span class="s1">&lt;</span><span class="s4">period</span><span class="s1">(</span><span class="s4">in days</span><span class="s1">)&gt;</span><span class="s0">` + 
+</span><span class="s1">Non-recurring event: &lt;event type&gt; &lt;event description&gt; /dd-MM-yyyy HHmm HHmm</span>
+
+<span class="s0">==== Why it is implemented this way</span>
+<span class="s0">. </span><span class="s1">Whether the input command has a period is considered at the first, so that the dependency between adding</span>
+<span class="s1">recurrent events and adding normal events could be reduced.</span>
+<span class="s0">. </span><span class="s1">The </span><span class="s0">`</span><span class="s4">add</span><span class="s1">(</span><span class="s4">int field, int amount</span><span class="s1">)</span><span class="s0">` </span><span class="s1">method of </span><span class="s0">`</span><span class="s4">Calendar</span><span class="s0">` </span><span class="s1">class is used to add or subtract from the given calendar field</span>
+<span class="s1">and a specific amount of time, based on the calendar's rules. </span><span class="s0">+ 
+`</span><span class="s4">public abstract void add</span><span class="s1">(</span><span class="s4">int </span><span class="s0">_</span><span class="s5">field</span><span class="s0">_</span><span class="s4">, int </span><span class="s0">_</span><span class="s5">amount</span><span class="s0">_</span><span class="s1">)</span><span class="s0">`</span>
+<span class="s0">. </span><span class="s1">Since the number of recurrent events with a short period could be large, it is more likely to have clashes with the</span>
+<span class="s1">current eventList. Hence, before added in the temporary event list, the new event need to be ensured that no clash</span>
+<span class="s1">happens.</span>
+<span class="s0">. </span><span class="s1">To keep the format of creating new events, the format process of changing Java Date to String is done in the</span>
+<span class="s0">`</span><span class="s4">EventDate</span><span class="s0">` </span><span class="s1">class instead of messing the </span><span class="s0">`</span><span class="s4">Event</span><span class="s0">` </span><span class="s1">class to accept both Date and String types as input date and time.</span>
+
+<span class="s0">==== Sequence diagram</span>
+<span class="s1">The following sequence diagram shows how the adding recurring event operation works.</span>
+
+<span class="s0">image::</span><span class="s1">recurringEventSequenceDiagram.png</span><span class="s0">[</span><span class="s1">width=&quot;800&quot;</span><span class="s0">, </span><span class="s1">align = center</span><span class="s0">]</span>
+
+<span class="s0">==== Design considerations</span>
+<span class="s1">Aspect: How to avoid adding infinite events </span><span class="s0">+ 
+</span>
+<span class="s0">* *</span><span class="s1">Alternative 1 (current choice):</span><span class="s0">* </span><span class="s1">Set a upper limit to ensure the interval between the first and last events added to</span>
+<span class="s1">list is not too long.</span>
+<span class="s0">** </span><span class="s1">Pros: Easy to implement. Easy to add lesson and practice in one semester.</span>
+<span class="s0">** </span><span class="s1">Cons: Not agility. May add too many extra events if users want short interval between the first and last</span>
+<span class="s1">recurring events.</span>
+<span class="s0">* *</span><span class="s1">Alternative 2:</span><span class="s0">* </span><span class="s1">Let users to set the interval between the first and last recurring events.</span>
+<span class="s0">** </span><span class="s1">Pros: Will be more agility and user friendly.</span>
+<span class="s0">** </span><span class="s1">Cons: Hard to unify the command format.</span>
+
+<span class="s0">=== Contacts list</span>
+<span class="s0">==== How is it implemented</span>
+<span class="s1">The contacts list stores a list of contacts contain &lt;name&gt;, &lt;email address&gt;, and &lt;phone number&gt; information added by</span>
+<span class="s1">users. The list is stored in each individual event. When the user first creates the event, the event is created with an</span>
+<span class="s1">empty contact list. </span><span class="s0">+ 
+*</span><span class="s1">Users can add, edit, delete a specified contact item, and view the contacts list of a specified event.</span><span class="s0">*</span>
+
+<span class="s0">===== Adding a contact</span>
+<span class="s0">====</span>
+<span class="s1">Given below is an example to adding a contact: </span><span class="s0">+ 
+`</span><span class="s4">contact add </span><span class="s1">&lt;</span><span class="s4">event number</span><span class="s1">&gt; </span><span class="s4">/</span><span class="s1">&lt;</span><span class="s4">name</span><span class="s1">&gt;</span><span class="s4">, </span><span class="s1">&lt;</span><span class="s4">email address</span><span class="s1">&gt;</span><span class="s4">, </span><span class="s1">&lt;</span><span class="s4">phone number</span><span class="s1">&gt;</span><span class="s0">`</span>
+<span class="s0">====</span>
+<span class="s0">.. </span><span class="s1">When the command is entered, the manageContacts() method will be called.</span>
+<span class="s0">.. </span><span class="s1">The method will check whether the event ID is valid. Add a new Contact will be created with contact information in it.</span>
+<span class="s0">.. </span><span class="s1">The event corresponding to the ID entered along with its method addContact() will be called to add the contact into</span>
+<span class="s1">the contact list in the event.</span>
+<span class="s0">.. </span><span class="s1">The printContactAdded() method of the UI class will be called to reflect the change to the user.</span>
+
+<span class="s0">===== Viewing the contact list</span>
+<span class="s0">====</span>
+<span class="s1">Given below is an example to view contact list of an event: </span><span class="s0">+ 
+`</span><span class="s4">contact view </span><span class="s1">&lt;</span><span class="s4">event number</span><span class="s1">&gt;</span><span class="s0">`</span>
+<span class="s0">====</span>
+<span class="s0">.. </span><span class="s1">When the command is entered, the manageContacts() method will be called.</span>
+<span class="s0">.. </span><span class="s1">The method will check whether the event ID is valid, and whether the contact list of the event is empty.</span>
+<span class="s0">.. </span><span class="s1">If the contact list is empty, printNoContactInEvent() will be called to inform the user that contact list is empty.</span>
+<span class="s1">If the contact list is not empty, printEventContacts() will be called ang print all the contacts in the list under the event.</span>
+
+<span class="s0">===== Editing a contact</span>
+<span class="s0">====</span>
+<span class="s1">Given below is an example to edit a contact in the contact list: </span><span class="s0">+ 
+`</span><span class="s4">contact edit </span><span class="s1">&lt;</span><span class="s4">event number</span><span class="s1">&gt; &lt;</span><span class="s4">contact number</span><span class="s1">&gt; </span><span class="s4">name|email|phone /</span><span class="s1">&lt;</span><span class="s4">new contact</span><span class="s1">&gt;</span><span class="s0">`</span>
+<span class="s0">====</span>
+<span class="s0">.. </span><span class="s1">When the command is entered, the manageContacts() method will be called.</span>
+<span class="s0">.. </span><span class="s1">The method will check whether the event ID, the contact ID, and the edit type are valid.</span>
+<span class="s0">.. </span><span class="s1">The contact information will be changed.</span>
+<span class="s0">.. </span><span class="s1">The printContactEdited() method of the UI class will be called to reflect the change to the user.</span>
+
+<span class="s0">===== Deleting a contact</span>
+<span class="s0">====</span>
+<span class="s1">Given below is an example to delete a contact in the contact list: </span><span class="s0">+ 
+`</span><span class="s4">contact delete </span><span class="s1">&lt;</span><span class="s4">event number</span><span class="s1">&gt; &lt;</span><span class="s4">contact number</span><span class="s1">&gt;</span><span class="s0">`</span>
+<span class="s0">====</span>
+<span class="s0">.. </span><span class="s1">When the command is entered, the manageContacts() method will be called.</span>
+<span class="s0">.. </span><span class="s1">The method will check whether the event ID and the contact ID are valid.</span>
+<span class="s0">.. </span><span class="s1">The contact will be deleted from the list.</span>
+<span class="s0">.. </span><span class="s1">The printContactDeleted() method of the UI class will be called to reflect the change to the user.</span>
+
+<span class="s0">==== Why is it implemented this way</span>
+<span class="s0">. </span><span class="s1">For different events, users may have different people to contact with. So a empty contact list is created under each</span>
+<span class="s1">event. For some events, users may have more than one person to contact with. Hence, users are allowed add more contact</span>
+<span class="s1">items under one event.</span>
+<span class="s0">. </span><span class="s1">We want to keep the information highly relative to contact, so users just need to add &lt;name&gt;, &lt;email address&gt;, and</span>
+<span class="s1">&lt;phone number&gt; for a contact item. Sometimes may not have the email or phone number of a person, so it also allows users</span>
+<span class="s1">to add one of &lt;email address&gt; and &lt;phone number&gt;.</span>
+<span class="s0">. </span><span class="s1">The main propose of MisterMusik is schedule events, so the contact list is hidden on the basic list viewing. Users can</span>
+<span class="s1">use command </span><span class="s0">`</span><span class="s4">contact view </span><span class="s1">&lt;</span><span class="s4">event number</span><span class="s1">&gt;</span><span class="s0">` </span><span class="s1">to see the contact list of the specified event.</span>
+
+<span class="s0">=== Viewing specific dates</span>
+<span class="s0">==== How is it implemented</span>
+<span class="s1">The implementation is a simple for loop that runs through the existing task list. If a matching date is detected,</span>
+<span class="s1">it will return the corresponding task and add it to a temporary list of found tasks. After running through the whole</span>
+<span class="s1">list, the temporary list will be printed out to display all the tasks of a specific date.</span>
+
+<span class="s1">Step 1: When the command &quot;view &lt;date&gt;&quot; is given, the viewEvents() method will be called.</span>
+
+<span class="s1">Step 2: A temporary ArrayList is created by the method to be populated.</span>
+
+<span class="s1">Step 3: The date string from the input command is passed into the EventDate class to be formatted into the same format as that of</span>
+<span class="s1">each event and returned as a string.</span>
+
+<span class="s1">Step 4: The returned string is compared with each task in the event list to check for any event with a matching date.</span>
+
+<span class="s1">Step 5: When an event with a matching date is found, the event is added to the temporary list.</span>
+
+<span class="s1">Step 6: After the entire list has been checked, the temporary list is passed into a UI instance</span>
+
+<span class="s1">Step 7: The printFoundEvents() method will be called. The said method then prints out the temporary list, displaying the list of events taking place on a specific date.</span>
+
+<span class="s1">In the situation when an empty temporary list is passed into the UI for it to print, an exception will occur and the</span>
+<span class="s1">printFoundEvents() method will catch the exception before printing out a string to inform the user that there are no tasks</span>
+<span class="s1">taking place on that specific date.</span>
+
+<span class="s0">==== Activity Diagram</span>
+<span class="s0">image::</span><span class="s1">DGViewEventsDiagram.png</span><span class="s0">[]</span>
+
+<span class="s0">==== Why is it implemented this way</span>
+<span class="s1">The matching events are being stored individually into a separate temporary list before being printed out. This is to allow</span>
+<span class="s1">an easier handling of individual tasks as separate instances in case the user wishes to edit a particular task from the</span>
+<span class="s1">temporary list.</span>
+
+<span class="s0">==== Alternative implementations considered</span>
+<span class="s1">Storing all the matching events as a single string, passing the string into the printFoundEvents() method to print out. This</span>
+<span class="s1">implementation is undesirable as it will be difficult to access individual matching events in the case the user wishes to edit</span>
+<span class="s1">them as mentioned above.</span>
+
+<span class="s0">==== Sequence Diagram</span>
+<span class="s0">image::</span><span class="s1">ViewScheduleSeqDiagram.png</span><span class="s0">[]</span>
+
+<span class="s0">=== Goals List</span>
+<span class="s0">==== How is it implemented</span>
+<span class="s1">The goals list is an array list type that stores a list of goals to be achieved by the user for each individual event, particularly</span>
+<span class="s1">for Lesson and Practice type events. When the user first creates the event, the event is created with an empty goal list. Only</span>
+<span class="s1">when the user types in &quot;goal add &lt;event ID&gt;&quot; then the goal list will be updated with the particular goal. The user can then</span>
+<span class="s1">manipulate the goal list by using &quot;goal edit&quot;, &quot;goal delete&quot; or &quot;goal view&quot; commands.</span>
+
+<span class="s0">===== Adding a goal</span>
+<span class="s1">Step 1: When the command &quot;goal add &lt;event ID&gt;/&lt;goal description&gt;&quot; is entered, the goalsManagement() method will be called.</span>
+
+<span class="s1">Step 2: The command description will be split up into separate strings. The string for event ID will be parsed into an</span>
+<span class="s1">integer type.</span>
+
+<span class="s1">Step 3: The method will check the string for the goal command description. In this case it will be &quot;add&quot; and execute the</span>
+<span class="s1">code for this case.</span>
+
+<span class="s1">Step 4: A new Goal class instance will be created with the goal description string. Its achieved status set as false.</span>
+
+<span class="s1">Step 5: The event corresponding to the ID entered along with its method addGoal() will be called to add the goal instance</span>
+<span class="s1">into the goal list.</span>
+
+<span class="s1">Step 6: The goalAdded() method of the UI class will be called to reflect the change to the user.</span>
+
+<span class="s0">===== Editing a goal</span>
+<span class="s1">Step 1: The user will enter the command &quot;goal edit &lt;event ID&gt; &lt;goal ID&gt;/&lt;new goal description&gt;&quot;. The goalsManagement() method</span>
+<span class="s1">is called.</span>
+
+<span class="s1">Step 2: The command description will be split up into separate strings. The strings for event ID and goal ID will be parsed</span>
+<span class="s1">into an integer type.</span>
+
+<span class="s1">Step 3: The method will check the string for the goal command description. In this case it will be &quot;edit&quot; and execute the</span>
+<span class="s1">code for this case.</span>
+
+<span class="s1">Step 4: A new Goal class instance will be created for the new goal description.</span>
+
+<span class="s1">Step 5: The method editGoalList() of the event corresponding to the input ID will be called. The method will set the goal indicated</span>
+<span class="s1">as the new Goal instance.</span>
+
+<span class="s1">Step 6: The goalUpdated() method of the UI class will be called to reflect the change to the user.</span>
+
+<span class="s0">===== Deleting a goal</span>
+<span class="s1">Step 1: When the user enters the command &quot;goal delete &lt;event ID&gt; &lt;goal ID&gt;&quot;, the goalsManagement() method will be called.</span>
+
+<span class="s1">Step 2: The command description will be split up into separate strings. The strings for event ID and goal ID will be parsed</span>
+<span class="s1">into an integer type.</span>
+
+<span class="s1">Step 3: The method will check the string for the goal command description. In this case it will be &quot;delete&quot; and execute the</span>
+<span class="s1">code for this case.</span>
+
+<span class="s1">Step 4: The corresponding event will have its removeGoal() method called which removes the indicated goal from the list.</span>
+
+<span class="s1">Step 5: The goalDeleted() method of the UI class will be called to reflect the change to the user.</span>
+
+<span class="s0">===== Setting the goal as achieved</span>
+<span class="s1">Step 1: When the command &quot;goal achieved &lt;event ID&gt; &lt;goal ID&gt;&quot; is given, the goalsManagement() method will be called.</span>
+
+<span class="s1">Step 2: The command description will be split up into separate strings. The strings for event ID and goal ID will be parsed</span>
+<span class="s1">into an integer type.</span>
+
+<span class="s1">Step 3: The method will check the string for the goal command description. In this case it will be &quot;achieved&quot; and execute the</span>
+<span class="s1">code for this case.</span>
+
+<span class="s1">Step 4: The method updateGoalAchieved() for the corresponding event will be called.</span>
+
+<span class="s1">Step 5: The goals list within the event is called with the indicated goal.</span>
+
+<span class="s1">Step 6: The indicated goal will then call its setAchieved() method that assigns the boolean isAchieved attribute of that</span>
+<span class="s1">particular goal to &quot;true&quot;.</span>
+
+<span class="s1">Step 7: The goalSetAsAchieved() method of the UI class will be called to reflect the change to the user.</span>
+
+<span class="s0">===== Viewing the goal list</span>
+<span class="s1">Step 1: The user will enter the command &quot;goal view &lt;event ID&gt;&quot;. The goalsManagement() method will be called.</span>
+
+<span class="s1">Step 2: Command description will be split and the string for event ID will be parsed into an integer type.</span>
+
+<span class="s1">Step 3: The printEventGoals() method will be called to check the contents of the goal list for the indicated event.</span>
+
+<span class="s1">Step 4: If the goals list is not empty, it will print out the contents of the list using a for loop. Otherwise it will</span>
+<span class="s1">print a message to the user to reflect that the goal list is empty.</span>
+
+<span class="s0">==== Why is it implemented this way</span>
+<span class="s1">The goal managing function is implemented as a separate list within an event in order to utilise the indexing of the list</span>
+<span class="s1">elements. This way, a particular goal for a particular event can be easily accessed and manipulated via the input of an</span>
+<span class="s1">integer.</span>
+
+<span class="s0">==== Alternatives considered</span>
+<span class="s1">An alternate method considered was to implement the goals list as a separate class of its own. Each goal within this list</span>
+<span class="s1">will then be mapped to their corresponding events. This implementation method would cause difficulties on the users' part</span>
+<span class="s1">in identifying the ID of a particular goal and would generally makes the goal list less organised.</span>
+
+<span class="s0">==== Sequence Diagram</span>
+<span class="s1">Below is a sequence diagram for the &quot;goal delete&quot; operation.</span>
+<span class="s0">image:</span><span class="s1">DeleteGoalSeq.png</span><span class="s0">[]</span>
+
+<span class="s0">=== Past event management</span>
+<span class="s1">This functionality basically tracks which tasks in the list have already passed, and subsequently only displays future</span>
+<span class="s1">tasks when the user uses the &quot;list&quot; command to view the list. This function is linked with the goals management function</span>
+<span class="s1">as it also detects unachieved goals in events that are already over.</span>
+
+<span class="s0">==== How is it implemented</span>
+<span class="s1">The EventList class contains an integer attribute called currentDateIndex, which will be initialised to 0. The system will</span>
+<span class="s1">then compare the current date with the start dates of each of the events in the event list. Once an event that is in the</span>
+<span class="s1">future has been reached, the index of the event will be assigned to the currentDateIndex. After this has been done, the</span>
+<span class="s1">&quot;list&quot; command will only list out events starting from that particular index.</span>
+
+<span class="s1">Step 1: The integer attribute currentDateIndex in the EventList class instance will be initialised to 0 and the Date class</span>
+<span class="s1">currentDate attribute will be initialised to the system date and time of that instance</span>
+
+<span class="s1">Step 2: Whenever the user inputs the &quot;list&quot; command, the listOfEvents_String() method is called which will in turn call the</span>
+<span class="s1">findNextEventAndSetBoolean() method which takes in the Date class that has been initialised in step 1.</span>
+
+<span class="s1">Step 3: In the findNextEventAndSetBoolean() method, the start dates of each event are compared to the current date using</span>
+<span class="s1">Date class's compareTo() method using a for loop.</span>
+
+<span class="s1">Step 4: The moment the loop reaches an event that has not happened yet i.e. its start date is later than the current date,</span>
+<span class="s1">the index of the event in the list will be assigned to the currentDateIndex and the loop terminates.</span>
+
+<span class="s1">Step 5: Back in the listOfEvents_String() method, the list of events starting from the one with the same index integer as</span>
+<span class="s1">currentDateIndex will be returned to the UI class to be printed out.</span>
+
+<span class="s0">==== Why is it implemented this way</span>
+<span class="s1">This function is implemented this way to maximise the usefulness of the indexing nature of ArrayList. Even if an</span>
+<span class="s1">event has passed and the list no longer shows it, the indexes of all the events are kept constant. This is crucial as the</span>
+<span class="s1">commands for most of our functions require the user to indicate the index of an event they want to manipulate, and keeping</span>
+<span class="s1">them constant makes it very easy for the user to input commands without having to take note of the change in the event indexes</span>
+<span class="s1">after making any changes to the list.</span>
+
+<span class="s0">==== Alternatives considered</span>
+<span class="s1">We have considered the possibility of deleting the past events that are over. However, as mentioned above we require the indexing</span>
+<span class="s1">of the events to stay constant and by deleting the past events, the event indexes will change as well.</span>
+
+<span class="s0">==== Integration with goal list management</span>
+<span class="s0">===== Implementation</span>
+<span class="s1">The management of goals list can be integrated with the ability to track past events. This is done through a boolean attribute</span>
+<span class="s1">gotPastUnachieved in the EventList class. If true, there are unachieved goals for past events and vice versa.</span>
+
+<span class="s1">Step 1: User enters the &quot;list&quot; command. The listOfEvents_String() method is called which then calls the findNextEventAndSetBoolean() method.</span>
+
+<span class="s1">Step 1: Within the findNextEventAndSetBoolean() method, the attribute currentDateIndex is checked to see if it is more than 0. If it</span>
+<span class="s1">is, that means there are past events.</span>
+
+<span class="s1">Step 2: If there are past events, the method will enter a nest of two for loops. The outer loop runs through all the past events,</span>
+<span class="s1">while the inner loop iterates through the goal list for each individual past event.</span>
+
+<span class="s1">Step 3: Each time an inner loop is iterated through, the getBooleanStatus() method for the particular event will be called. If returns</span>
+<span class="s1">true, gotPastUnachieved will be assigned as true and the method will break out of the loop.</span>
+
+<span class="s1">Step 4: After the event list has been printed out, the method getPastEventsWithUnachievedGoals() is called. This method utilises two</span>
+<span class="s1">nested for loops to identify the unachieved goals among all the past events and passes both the past events along with all their</span>
+<span class="s1">unachieved goals to the UI class to be printed out below the event list.</span>
+
+<span class="s0">==== Sequence Diagram</span>
+<span class="s0">image::</span><span class="s1">PastEventAndGoalsListManagementSeq.png</span><span class="s0">[]</span>
+
+<span class="s0">=== Reminders</span>
+
+<span class="s0">==== How it is implemented</span>
+<span class="s1">The reminder function filters out the tasks that are due or are happening before 2359 an input number of days after </span>
+<span class="s1">the current date, and prints them out as a reminder for the users. If the number of days is not provided, the number</span>
+<span class="s1">of days is 3 by default.</span>
+
+<span class="s1">After the user enters 'reminder', the Command.execute method calls Command.remindEvents, which in turn calls the</span>
+<span class="s1">Ui.printReminders function. The Ui.printReminders function calls the EventList.getReminder method, which uses the</span>
+<span class="s1">EventList.filteredList method to filter out a list of events that are due or are happening before 2359 the input number </span>
+<span class="s1">of days after the current date. The EventList.filteredListTwoPredicates method filters out events from the stored list of </span>
+<span class="s1">events according to two input predicates.</span>
+
+<span class="s1">The constructor of the Predicate class takes in two arguments: the reference and the comparator. The reference is the</span>
+<span class="s1">item that is used for the comparison reference (comp) input, and the comparator is the operator that is used for the</span>
+<span class="s1">comparison. The comparator should be either one of the three global integer variables: EQUAL, GREATER_THAN or SMALLER_THAN.</span>
+<span class="s1">The Predicate.check method takes in an input and checks if reference (comp) input is true by calling the appropriate method</span>
+<span class="s1">in the Predicate class depending on the type of the reference and input.</span>
+
+<span class="s1">In the EventList.getReminder method, the reference of the one of the two input Predicate objects is an eventDate object set to</span>
+<span class="s1">2359 the input number of days after the current date, and the comparator is GREATER_THAN. The reference of the other</span>
+<span class="s1">input Predicate object is an eventDate object set to the current time. After that, the EventList.getReminder </span>
+<span class="s1">method calls the EventList.filteredListTwoPredicates method. In the EventList.filteredListTwoPredicates method, the system </span>
+<span class="s1">iterates through the list of Events in </span><span class="s0">`</span><span class="s4">eventArrayList</span><span class="s0">`</span><span class="s1">.The EventDate object stored in the Event object is passed into the</span>
+<span class="s1">Predicate.check method. If the EventDate object stored in the Event object is a date before the reference date, the Predicate.check</span>
+<span class="s1">method returns true and the Event object is added to the output. After all the elements in EventList.filteredListTwoPredicates are</span>
+<span class="s1">parsed and the EventList.filteredListTwoPredicates method terminates, EventList.getReminder method returns a string containing the</span>
+<span class="s1">current date and time, the date and time at 2359 the input number of days after the current date, and the filtered list of events. </span>
+<span class="s1">This string is printed to stdout in the Ui.printReminders function.</span>
+
+<span class="s0">==== Sequence diagram</span>
+<span class="s1">The following sequence diagram shows how the reminder functionality works.</span>
+<span class="s0">====</span>
+<span class="s0">image::</span><span class="s1">reminderSequenceDiagram.png</span><span class="s0">[</span><span class="s1">width = 100%</span><span class="s0">]</span>
+<span class="s0">====</span>
+
+<span class="s0">==== Why it is implemented this way</span>
+<span class="s1">The reminder function is split the various components into different methods for easier testing. In this case, Ui.printReminders</span>
+<span class="s1">prints the output to the user interface, EventList.getReminder is responsible for compiling the output whereas EventList.filteredList</span>
+<span class="s1">obtains the filtered list of events from </span><span class="s0">`</span><span class="s4">eventArrayList</span><span class="s0">`</span><span class="s1">.</span>
+
+<span class="s1">This implementation also implements scalability as the Predicate class and the EventList.filteredList method can be reused for other</span>
+<span class="s1">functions.</span>
+
+<span class="s0">=== Instruments</span>
+
+<span class="s0">==== How it is implemented</span>
+<span class="s1">The mistermusik.commons.Instruments.InstrumentList class stores an array list of instruments. Instruments are objects of class</span>
+<span class="s1">mistermusic.commons.Instruments.Instrument. Each instance of the mistermusic.commons.Instruments.Instrument class also has an </span>
+<span class="s1">array list of services. Services are objects of class mistermusic.commons.Instruments.Services.</span>
+
+<span class="s0">==== Adding an instrument</span>
+
+<span class="s1">Step 1: The user will type in the command </span><span class="s0">`</span><span class="s4">instrument add /</span><span class="s1">&lt;</span><span class="s4">instrument name</span><span class="s1">&gt;</span><span class="s0">`</span><span class="s1">. The addInstrument() method from the InstrumentList </span>
+<span class="s1">class is called.</span>
+
+<span class="s1">Step 2: The addInstrument() method creates a new instance of Instrument with the given input name. </span>
+
+<span class="s1">Step 3: The getInstrumentIndexAndName() method, which returns a string containing the index of the instrument and the name, is </span>
+<span class="s1">called. </span>
+
+<span class="s1">Step 4: The instrumentAdded() method from the Ui class is then called, which prints a message stating that the instrument has</span>
+<span class="s1">been added.</span>
+
+<span class="s0">==== Viewing the list of instruments stored in the system</span>
+
+<span class="s1">Step 1: The user will type in the command </span><span class="s0">`</span><span class="s4">instrument view instruments</span><span class="s0">`</span><span class="s1">. The getInstruments() method from the InstrumentList </span>
+<span class="s1">class is called.</span>
+
+<span class="s1">Step 2: The getInstruments() method returns a string containing a list of instruments stored in the InstrumentList instance used</span>
+<span class="s1">for the program. </span>
+
+<span class="s1">Step 3: The printInstruments() method from the Ui class is then called, which prints out the list of instruments stored in the</span>
+<span class="s1">InstrumentList instance used for the program.</span>
+
+<span class="s0">==== Servicing an instrument</span>
+
+<span class="s1">Step 1: The user will type in the command </span><span class="s0">`</span><span class="s4">instrument service </span><span class="s1">&lt;</span><span class="s4">instrument index</span><span class="s1">&gt; </span><span class="s4">/</span><span class="s1">&lt;</span><span class="s4">brief description of servicing</span><span class="s1">&gt; </span><span class="s4">/</span><span class="s1">&lt;</span><span class="s4">date</span><span class="s1">&gt;</span><span class="s0">`</span><span class="s1">.</span>
+<span class="s1">The service() method from the InstrumentList instance is called.</span>
+
+<span class="s1">Step 2: The service() method of the InstrumentList instance calls the addService() method of the referenced Instrument stored in the</span>
+<span class="s1">InstrumentList instance based on the input index. </span>
+
+<span class="s1">Step 3: The addService() method adds the relevant servicing information to the Instrument instance by creating a new ServiceInfo</span>
+<span class="s1">instance and adding it to the array list of ServiceInfo stored in the Instrument instance, and returns the number of ServiceInfo</span>
+<span class="s1">instances stored in the array list.</span>
+
+<span class="s1">Step 4: The getInstrumentIndexAndName() method of the InstrumentList instance, which returns a string containing the index of </span>
+<span class="s1">the instrument and the name, is called. </span>
+
+<span class="s1">Step 5: The getIndexAndService() method of the InstrumentList instance is called, which in turn calls the getIndexAndService()</span>
+<span class="s1">method of the relevant Instrument instance stored in the InstrumentList instance used for the program. Both methods return the </span>
+<span class="s1">index of the required servicing and the brief description of the servicing. The getIndexAndService() method of the Instrument</span>
+<span class="s1">instance calls the getServiceInfo() method on the relevant service to obtain the brief description of the servicing. </span>
+
+<span class="s1">Step 6: The serviceAdded() method of the Ui class, which prints a message notifying the user that the servicing information has</span>
+<span class="s1">been added, is then called.</span>
+
+<span class="s0">==== Viewing the list of servicing done for a particular instrument</span>
+
+<span class="s1">Step 1: The user will type in the command </span><span class="s0">`</span><span class="s4">instrument view services </span><span class="s1">&lt;</span><span class="s4">instrument index</span><span class="s1">&gt;</span><span class="s0">`</span><span class="s1">. The getInstrumentServiceInfo() method from </span>
+<span class="s1">the InstrumentList class is called, which in turn calls the getServiceInfos() method of the relevant Instrument instance stored in </span>
+<span class="s1">the array list of Instruments in the InstrumentList instance. Both methods return the list of servicing done to the relevant</span>
+<span class="s1">instrument. The getServiceInfos() function iterates through the stored list of ServiceInfo instances and calls getServiceInfo() on</span>
+<span class="s1">all the ServieInfo instances to obtain the descriptions of the servicings.</span>
+
+<span class="s1">Step 2: The getInstrumentIndexAndName() method of the InstrumentList instance, which returns a string containing the index of </span>
+<span class="s1">the instrument and the name, is called. </span>
+
+<span class="s1">Step 3: The printServices() method from the Ui class is then called, which prints out the list of servicing stored in a particular</span>
+<span class="s1">Instrument instance.</span>
+
+<span class="s0">==== Sequence diagram</span>
+<span class="s1">The following sequence diagram shows how the view services functionality works.</span>
+<span class="s0">====</span>
+<span class="s0">image::</span><span class="s1">getServicesInstrumentSequenceDiagram.png</span><span class="s0">[</span><span class="s1">width = 100%</span><span class="s0">]</span>
+<span class="s0">====</span>
+
+<span class="s0">==== Why it is implemented this way</span>
+<span class="s1">The implementation makes use of three classes, which are InstrumentList, Instrument and ServiceInfo. This allows for easier </span>
+<span class="s1">testing as each of the classes represent a different component of the functionality. The InstrumentList instance stores an array </span>
+<span class="s1">list of Instrument instances, an Instrument instance stores an array list of ServiceInfo instances.</span>
+
+
+<span class="s0">== Documentation</span>
+<span class="s1">We use asciidoc for writing documentation.</span>
+<span class="s0">[</span><span class="s1">NOTE</span><span class="s0">]</span>
+<span class="s1">We chose asciidoc over Markdown because asciidoc, although a bit more complex than Markdown, provides more flexibility</span>
+<span class="s1">in formatting.</span>
+
+<span class="s0">== Testing</span>
+<span class="s1">The testing for our application is done through Junit tests (also viable to run these through gradle) and</span>
+<span class="s1">manual testing, covered in </span><span class="s0">&lt;&lt;Instructions for Manual Testing, </span><span class="s1">Appendix E: Instructions for manual testing</span><span class="s0">&gt;&gt;</span>
+
+<span class="s0">=== Junit testing</span>
+<span class="s0">. </span><span class="s1">IntelliJ: Simply right click the src/test/java directory and select </span><span class="s0">`</span><span class="s4">Run </span><span class="s1">'</span><span class="s4">Tests in </span><span class="s1">'</span><span class="s4">seedu.duke...</span><span class="s1">'</span><span class="s0">` </span><span class="s1">or right</span>
+<span class="s1">click the individual test class you wish to run, and select </span><span class="s0">`</span><span class="s4">Run </span><span class="s1">'</span><span class="s4">BudgetTest</span><span class="s1">'</span><span class="s0">` </span><span class="s1">for example when testing</span>
+<span class="s1">individual components. This can also be done through the Gradle sidebar (double click the corresponding test</span>
+<span class="s1">under </span><span class="s0">`</span><span class="s4">run configurations</span><span class="s0">`</span><span class="s1">).</span>
+<span class="s0">. </span><span class="s1">Command prompt: Simply type the command </span><span class="s0">`</span><span class="s4">gradlew clean test</span><span class="s0">`</span>
+
+<span class="s0">== Dev Ops</span>
+<span class="s1">For build automation, we chose to use gradle, allowing for a more convenient process when running tests and</span>
+<span class="s1">checking for coding standard violations. Here are some of the gradle tasks that are essential to the</span>
+<span class="s1">development of the application.</span>
+
+<span class="s0">NOTE: </span><span class="s1">For all the following commands, it is possible to run them through the IntelliJ IDE using the gradle</span>
+<span class="s1">task bar. The tasks on the task bar are identical in name to the command line tasks, so the following</span>
+<span class="s1">information is still relevant regarding their functions.</span>
+
+<span class="s0">=== How to run gradle commands</span>
+<span class="s1">Use the command </span><span class="s0">`</span><span class="s4">gradlew </span><span class="s1">&lt;</span><span class="s4">taskname</span><span class="s1">&gt;</span><span class="s0">`</span>
+
+<span class="s0">NOTE: </span><span class="s1">Different tasks can be run at the same time by using a format such as</span>
+<span class="s0">`</span><span class="s4">gradlew </span><span class="s1">&lt;</span><span class="s4">task1</span><span class="s1">&gt; &lt;</span><span class="s4">task2</span><span class="s1">&gt;</span><span class="s4">...</span><span class="s0">`</span>
+
+<span class="s0">WARNING: </span><span class="s1">For Mac users, you will need to add a </span><span class="s0">`</span><span class="s4">./</span><span class="s0">` </span><span class="s1">prefix before the command. For example,</span>
+<span class="s0">`</span><span class="s4">./gradlew run</span><span class="s0">`</span>
+
+<span class="s0">=== Building a jar file</span>
+<span class="s1">The command </span><span class="s0">`</span><span class="s4">shadowJar</span><span class="s0">` </span><span class="s1">will build a jar file using the current source code and store it under</span>
+<span class="s1">the #build/libs# directory.</span>
+
+<span class="s0">=== Clean</span>
+<span class="s1">The command </span><span class="s0">`</span><span class="s4">gradlew clean</span><span class="s0">` </span><span class="s1">will remove the buildDir folder, thus removing everything including leftover</span>
+<span class="s1">files from previous builds which are no longer necessary.</span>
+
+<span class="s0">WARNING: </span><span class="s1">While running a task, Gradle checks if it is actually necessary to carry out the procedure by default.</span>
+<span class="s1">For example, Gradle will not rebuild the jar file if source code has not changed since the last time a jar file</span>
+<span class="s1">was packaged.</span>
+
+<span class="s1">In order to force gradle to execute the task, the </span><span class="s0">`</span><span class="s4">clean</span><span class="s0">` </span><span class="s1">command can be used. For instance,</span>
+<span class="s0">`</span><span class="s4">gradlew clean shadowJar</span><span class="s0">` </span><span class="s1">will force a new jar file to be built.</span>
+
+<span class="s0">=== Running the application</span>
+
+<span class="s0">==== Run as per normal:</span>
+<span class="s1">The command </span><span class="s0">`</span><span class="s4">gradlew run</span><span class="s0">` </span><span class="s1">will build and run the application</span>
+
+<span class="s0">==== Run as jar file:</span>
+<span class="s1">The command </span><span class="s0">`</span><span class="s4">gradlew runShadow</span><span class="s0">` </span><span class="s1">will build the project as a jar file, and then run it.</span>
+
+<span class="s0">=== Checkstyle</span>
+<span class="s1">Using the command </span><span class="s0">`</span><span class="s4">checkstyleMain</span><span class="s0">` </span><span class="s1">will check for style violations in the </span><span class="s0">*</span><span class="s1">main</span><span class="s0">* </span><span class="s1">source code.</span>
+<span class="s1">Using the command </span><span class="s0">`</span><span class="s4">checkstyleTest</span><span class="s0">` </span><span class="s1">will check for style violations in the </span><span class="s0">*</span><span class="s1">test</span><span class="s0">* </span><span class="s1">source code.</span>
+
+<span class="s0">NOTE: </span><span class="s1">The checkstyle settings can be configured by editing the </span><span class="s0">`</span><span class="s4">config/checkstyle/checkstyle.xml</span><span class="s0">`</span>
+<span class="s1">file.</span>
+
+
+<span class="s0">[</span><span class="s1">appendix</span><span class="s0">]</span>
+<span class="s0">== Product Scope</span>
+<span class="s0">=== Target User Profile</span>
+<span class="s1">MisterMusik is a scheduler program created for serious music students pursuing a professional music career as a western</span>
+<span class="s1">classical music performer.</span>
+
+<span class="s1">The program is designed to automate and streamline most of the process in scheduling and organisation of materials,</span>
+<span class="s1">allowing the students to focus more on the important aspects of their education.</span>
+
+<span class="s0">[</span><span class="s1">appendix</span><span class="s0">]</span>
+<span class="s0">== User Stories</span>
+<span class="s0">. </span><span class="s1">As a busy music student with multiple classes, I want to be able to track my practice sessions so that I won’t miss any trainings.</span>
+<span class="s0">. </span><span class="s1">As a music student with a heavy workload, I want to be able to track my upcoming recitals and their details so I can prioritize which pieces/what techniques to practice and focus on.</span>
+<span class="s0">. </span><span class="s1">As a music student with a tendency to procrastinate in things I need to do, I want to be constantly reminded of my examination dates so i do not wait till the last minute to prepare for them.</span>
+<span class="s0">. </span><span class="s1">As a student who wants to maximize my efficiency in practice sessions (performer), I want to be able to rate and comment on the efficiency of my practice sessions and be able to review them to make sure that I learn and improve faster.</span>
+<span class="s0">. </span><span class="s1">As a student who wants to categorize what I learn in classes, I want to be able to take notes and organize them into different categories, so that I can easily review it anytime.</span>
+<span class="s0">. </span><span class="s1">As a student who wishes to be aware of his upcoming events, I wish to be able to view my schedule within a selected number of weeks so that I can plan for it.</span>
+
+
+<span class="s0">[</span><span class="s1">appendix</span><span class="s0">]</span>
+<span class="s0">== Use cases</span>
+
+<span class="s0">=== Entering a practice schedule into the system</span>
+<span class="s0">. </span><span class="s1">User enters a command to add a practice followed by a date, and the details of the intended practice.</span>
+<span class="s0">. </span><span class="s1">System prompts user about whether or not he wishes to make this a recurring practice (e.g every Tuesday).</span>
+<span class="s0">. </span><span class="s1">User responds to the prompt accordingly.</span>
+<span class="s0">. </span><span class="s1">System adds practice session to a stored list and saves it to a file on the user’s hard drive.</span>
+
+<span class="s0">=== Entering the details of a recital into the system</span>
+<span class="s0">. </span><span class="s1">User choose to enter a recital.</span>
+<span class="s0">. </span><span class="s1">System requires details of the recital.</span>
+<span class="s0">. </span><span class="s1">User enters date, time, venue, the pieces to be performed, and a description if needed.</span>
+<span class="s0">. </span><span class="s1">System adds recital to a stored list and saves it to a file on the user’s hard drive.</span>
+
+<span class="s1">Extension 3.1: System detects there is a clash with a concert/practice session at step 3.</span>
+<span class="s1">3.1.1.  System generates warnings and ask user to delete the corresponding entry and forgo that event.</span>
+<span class="s1">3.1.2.  User responds to the warning, deleting or rescheduling one of the events in a clash if necessary.</span>
+<span class="s1">3.1.3. System updates the stored list and saves it to the file on the user’s hard disk.</span>
+
+<span class="s1">Extension 3.2: System detects a clash with another recital or an examination at step 3.</span>
+<span class="s1">3.2.1.  System generates warnings and ask user to reschedule and re-enter one of the events that clash.</span>
+<span class="s1">3.2.2.  User responds to the warning, rescheduling and re-entering one of the events in a clash.</span>
+<span class="s1">3.2.3. System updates the stored list and saves it to the file on the user’s hard disk.</span>
+<span class="s1">Use case ends</span>
+
+<span class="s0">=== Making notes</span>
+<span class="s0">. </span><span class="s1">User chooses to enter a command to start a note-taking/viewing session</span>
+<span class="s0">. </span><span class="s1">System shows the user a list of categories (directories) of notes that have been made previously and prompts the user to enter one or create a new file.</span>
+<span class="s0">. </span><span class="s1">User makes a choice to enter a category directory or create a new one.</span>
+<span class="s0">. </span><span class="s1">System shows the user a list of files containing notes, each file is named with the corresponding date, and a description of the file decided by the user. System also prompts the user if he wants to create a new file or enter an existing one.</span>
+<span class="s0">. </span><span class="s1">User selects a file to enter or chooses to create a new file.</span>
+<span class="s0">. </span><span class="s1">System opens the file for viewing and editing. The user can choose to make changes to the notes using commands: delete, add and move to delete, add or move notes around the file accordingly.</span>
+
+<span class="s1">Extension 3.1: System detects there is no category file that user commands to edit on</span>
+<span class="s1">3.1.1. System generates warnings and ask the user whether or not he wishes to add a new category and take notes in</span>
+<span class="s1">3.1.2. User responds to the warning, and choose to add a new category</span>
+<span class="s1">3.1.3. System adds and opens a new category file with the name given by user</span>
+
+<span class="s0">=== Viewing upcoming events</span>
+<span class="s0">. </span><span class="s1">User enters command </span><span class="s0">`</span><span class="s4">list</span><span class="s0">` </span><span class="s1">followed by an integer N representing the number of weeks in advance he would like to view his schedule.</span>
+<span class="s0">. </span><span class="s1">System responds by showing the user a list of events in the next N weeks.</span>
+<span class="s0">. </span><span class="s1">User may enter a command to remove specific tasks from the list, to have a cleaner viewing experience.</span>
+
+<span class="s1">Extension 3.1: System can remove types of events from list at user’s command</span>
+<span class="s1">3.1.1. User can enter commands </span><span class="s0">`</span><span class="s4">remove examinations</span><span class="s0">` </span><span class="s1">for example, to remove the examinations from the display.</span>
+<span class="s1">3.1.2. System responds accordingly, removing the type of event from the list and altering the list of events displayed.</span>
+
+<span class="s1">Extension: 3.2. System can allow the user to only view a specific type of event.</span>
+<span class="s1">3.2.1. User can also enter commands </span><span class="s0">`</span><span class="s4">show examinations</span><span class="s0">` </span><span class="s1">for example, to only show examinations in the list of events.</span>
+<span class="s1">3.2.2. System will respond accordingly, displaying only type of event that the user specified.</span>
+
+<span class="s1">Extension: 3.3. System can allow the user to only view events on a specific date.</span>
+<span class="s1">3.3.1. User can enter the command &quot;view &lt;dd-MM-yyyy&gt;&quot;&quot; to view all events on that specific date.</span>
+<span class="s1">3.3.2. System will display the events, and the user can edit the events accordingly.</span>
+
+<span class="s0">=== Entering the examination details</span>
+<span class="s0">. </span><span class="s1">User enters command </span><span class="s0">`</span><span class="s4">examination</span><span class="s0">`</span><span class="s1">, together with a description of the examination, along with the date, time, venue and any other notes in a given format.</span>
+<span class="s0">. </span><span class="s1">The system adds the examination to the list of events.</span>
+
+<span class="s1">Extension 1.1: System detects a clash with the examination date entered and another event.</span>
+<span class="s1">1.1.1. System will prompt the user to reschedule the event of lower priority. (examinations and recitals are of highest priority, followed by concerts and then practices). If the clash is with an event of the same priority, the user is prompted to choose which one to reschedule(simple y/n response).</span>
+<span class="s1">1.1.2. User reschedules the specified event by entering a date and time. The user is also able to delete an event with the delete command to free up the schedule if he wishes to do so.</span>
+<span class="s1">1.1.3. System once again checks for clashes and repeats the process of rescheduling if necessary.</span>
+
+<span class="s0">=== Rate and comment on the efficiency of practice sessions</span>
+<span class="s0">. </span><span class="s1">User enters a command to rate a practice session</span>
+<span class="s0">. </span><span class="s1">System brings up a list of practice sessions that the user has already completed</span>
+<span class="s0">. </span><span class="s1">User selects a practice session</span>
+<span class="s0">. </span><span class="s1">System displays the details of the selected practice session and prompts the user to select an efficiency rating along with any additional notes</span>
+<span class="s0">. </span><span class="s1">User rates the efficiency of the practice session and takes down any notes or feedback from their instructor</span>
+<span class="s0">. </span><span class="s1">System saves the entry onto the hard disk</span>
+
+<span class="s0">=== Edit descriptions of any existing event</span>
+<span class="s0">. </span><span class="s1">User enters a command to edit the description of an event</span>
+<span class="s0">. </span><span class="s1">System edits corresponding description and prompts user of success</span>
+
+<span class="s1">Extension 1: System detects a clash of incorrect format entered by the user.</span>
+<span class="s1">1.1. System will prompt the user that the entered format was incorrect.</span>
+
+<span class="s1">Extensions 4.1: Selected practice session has already been rated.</span>
+<span class="s1">4.1.1. If the selected practice session has already been rated, the system notifies the user and allows them to edit.</span>
+<span class="s1">4.1.2. The user edits the rating and notes of the practice session accordingly</span>
+<span class="s1">4.1.3. System saves the changes onto the hard disk</span>
+
+<span class="s1">Extensions 5.1: User inputs an invalid rating.</span>
+<span class="s1">5.1.1. System displays an error message to inform the user of the correct rating format until a valid input is detected.</span>
+
+<span class="s0">=== Viewing all events in the coming 7 days.</span>
+<span class="s0">. </span><span class="s1">User enters a command to view all events in the next 7 days.</span>
+<span class="s0">. </span><span class="s1">System shows all events in the next 7 days in a calendar table.</span>
+
+<span class="s0">[</span><span class="s1">appendix</span><span class="s0">]</span>
+<span class="s0">== Non-functional requirements</span>
+<span class="s0">. </span><span class="s1">System should work on windows and linux.</span>
+<span class="s0">. </span><span class="s1">System response within 1 second.</span>
+<span class="s0">. </span><span class="s1">Usable by non tech-savvy individuals.</span>
+<span class="s0">. </span><span class="s1">Clear user prompts</span>
+<span class="s0">. </span><span class="s1">Visually pleasing display</span>
+
+
+<span class="s0">[</span><span class="s1">appendix</span><span class="s0">]</span>
+<span class="s0">== Instructions for Manual Testing</span>
+
+<span class="s0">=== Launch and Shutdown</span>
+<span class="s0">. </span><span class="s1">Initial Launch</span>
+<span class="s0">.. </span><span class="s1">Double click the jar executable</span>
+<span class="s0">.. </span><span class="s1">Expected: The Welcome Message is printed in stdout and the system requests for an input.</span>
+
+<span class="s0">NOTE: </span><span class="s1">If you are unable to run the jar file by double clicking it, you will need to navigate to</span>
+<span class="s1">the folder that you downloaded it to using the command prompt and type the command </span><span class="s0">`</span><span class="s4">java -jar</span>
+<span class="s1">&lt;</span><span class="s4">filename</span><span class="s1">&gt;</span><span class="s0">` + 
+</span><span class="s1">Please also ensure that your jar file is stored in an empty directory or it may cause conflicts</span>
+<span class="s1">with the storing of information to a txt file.</span>
+
+<span class="s0">. </span><span class="s1">Shutdown</span>
+<span class="s0">.. </span><span class="s1">Key in </span><span class="s0">`</span><span class="s4">bye</span><span class="s0">` </span><span class="s1">as input. </span><span class="s0">+ 
+   </span><span class="s1">Expected: The Goodbye Message ('Bye. Hope to see you again soon!') is printed in stdout and the process exits.</span>
+
+<span class="s0">=== Obtain the list of items currently in stored in the system</span>
+<span class="s0">. </span><span class="s1">Key in </span><span class="s0">`</span><span class="s4">list</span><span class="s0">` </span><span class="s1">as input </span><span class="s0">+ 
+  </span><span class="s1">Expected: A list of items is printed in stdout.</span>
+
+<span class="s0">=== Help list for input format</span>
+<span class="s0">. </span><span class="s1">Find help for basic commands' format</span>
+<span class="s0">.. </span><span class="s1">Test case: </span><span class="s0">`</span><span class="s4">help</span><span class="s0">` + 
+</span><span class="s1">Expected: The whole help list with basic commands will be printed.</span>
+<span class="s0">.. </span><span class="s1">Test case: </span><span class="s0">`</span><span class="s4">help list</span><span class="s0">` + 
+</span><span class="s1">Expected: The whole help list including list command will be printed.</span>
+<span class="s0">.. </span><span class="s1">Test case: </span><span class="s0">`</span><span class="s4">help reminder</span><span class="s0">` + 
+</span><span class="s1">Expected: The whole help list including reminder command will be printed.</span>
+
+<span class="s0">. </span><span class="s1">Find help for additional commands' format</span>
+<span class="s0">.. </span><span class="s1">Test case: </span><span class="s0">`</span><span class="s4">help event</span><span class="s0">` + 
+</span><span class="s1">Expected: The list of command formats of adding events will be printed.</span>
+<span class="s0">.. </span><span class="s1">Test case: </span><span class="s0">`</span><span class="s4">help done</span><span class="s0">` + 
+</span><span class="s1">Expected: The list of command formats of changing event's information including setting a todo as done will be printed.</span>
+
+<span class="s0">=== Add an Event</span>
+<span class="s0">. </span><span class="s1">Add Todo </span><span class="s0">+ 
+   </span><span class="s1">Key in </span><span class="s0">`</span><span class="s4">todo tdtask /15-11-2019</span><span class="s0">` + 
+   </span><span class="s1">Expected: Output should be </span><span class="s0">+ 
+   </span><span class="s1">Got it. I've added this task: </span><span class="s0">+ 
+   </span><span class="s1">[x][T] tdtask  BY: Fri, 15 Nov 2019 </span><span class="s0">+ 
+   </span><span class="s1">Now you have &lt;previous number of items + 1&gt; items in the list.</span>
+
+<span class="s0">. </span><span class="s1">Add Exam </span><span class="s0">+ 
+   </span><span class="s1">Key in </span><span class="s0">`</span><span class="s4">exam Music Rudiments /19-11-2019 0800 0900</span><span class="s0">` + 
+   </span><span class="s1">Expected: Output should be </span><span class="s0">+ 
+   </span><span class="s1">Got it. I've added this task: </span><span class="s0">+ 
+   </span><span class="s1">[x][E] Music Rudiments  START: Tue, 19 Nov 2019, 08:00 END: Tue, 19 Nov 2019, 09:00 </span><span class="s0">+ 
+   </span><span class="s1">Now you have &lt;previous number of items + 1&gt; tasks in the list.</span>
+
+<span class="s0">. </span><span class="s1">Add Practice session </span><span class="s0">+ 
+   </span><span class="s1">Key in </span><span class="s0">`</span><span class="s4">practice morningprac /19-11-2019 0700 0800</span><span class="s0">` + 
+   </span><span class="s1">Expected: Output should be </span><span class="s0">+ 
+   </span><span class="s1">Got it. I've added this event: </span><span class="s0">+ 
+   </span><span class="s1">[x][P] morningprac  START: Tue, 19 Nov 2019, 07:00 END: Tue, 19 Nov 2019, 08:00 </span><span class="s0">+ 
+   </span><span class="s1">Now you have &lt;previous number of items + 1&gt; tasks in the list.</span>
+
+<span class="s0">. </span><span class="s1">Add Concert </span><span class="s0">+ 
+   </span><span class="s1">Key in </span><span class="s0">`</span><span class="s4">concert Noon Concert /1-1-2020 1200 1400/15</span><span class="s0">` + 
+   </span><span class="s1">Expected: Output should be </span><span class="s0">+ 
+   </span><span class="s1">Got it. I've added this task: </span><span class="s0">+ 
+   </span><span class="s1">[x][C] Noon Concert  START: Wed, 01 Jan 2020, 12:00 END: Mon, 01 Jan 2020, 14:00 </span><span class="s0">+ 
+   </span><span class="s1">Now you have &lt;previous number of items + 1&gt; tasks in the list. </span><span class="s0">+ 
+   </span><span class="s1">Note: The final value (in this case 15) represents the cost of the concert in dollars.</span>
+   <span class="s1">The significance of this is explained under section E.13 budgeting.</span>
+
+<span class="s0">. </span><span class="s1">Add Recital </span><span class="s0">+ 
+   </span><span class="s1">Key in </span><span class="s0">`</span><span class="s4">recital Evening Recital /10-12-2019 1900 2100</span><span class="s0">` + 
+   </span><span class="s1">Expected: Output should be </span><span class="s0">+ 
+   </span><span class="s1">Got it. I've added this task: </span><span class="s0">+ 
+   </span><span class="s1">[x][R] Evening Recital  START: Tue, 10 Dec 2019, 19:00 END: Tue, 10 Dec 2019, 21:00 </span><span class="s0">+ 
+   </span><span class="s1">Now you have &lt;previous number of items + 1&gt; tasks in the list.</span>
+
+<span class="s0">. </span><span class="s1">Add Lesson </span><span class="s0">+ 
+   </span><span class="s1">Key in </span><span class="s0">`</span><span class="s4">lesson Class /2-1-2020 0900 1000</span><span class="s0">` + 
+   </span><span class="s1">Expected: Output should be </span><span class="s0">+ 
+   </span><span class="s1">Got it. I’ve added this task: </span><span class="s0">+ 
+   </span><span class="s1">[x][L] Class  START: Thu, 02 Jan 2020, 09:00 END: Thu, 02 Jan 2020, 10:00 </span><span class="s0">+ 
+   </span><span class="s1">Now you have &lt;previous number of items + 1&gt; tasks in the list.</span>
+
+<span class="s0">=== Add recurring events</span>
+<span class="s0">. </span><span class="s1">Add lessons and practices within correct period range</span>
+<span class="s0">.. </span><span class="s1">Test case: </span><span class="s0">`</span><span class="s4">lesson recurring lesson /01-01-2020 1800 2000 /7</span><span class="s0">` + 
+</span><span class="s1">Expected: 17 events with 7 days period are added to the list. And details of the first recurring event will be printed</span>
+<span class="s1">out. The number of events in the list printed should be &lt;previous number of items + 17&gt;.</span>
+<span class="s0">.. </span><span class="s1">Test case: </span><span class="s0">`</span><span class="s4">practice recurring practice /02-01-2020 0600 0800 /20</span><span class="s0">` + 
+</span><span class="s1">Expected: 6 events with 20 days period are added to the list. And details of the first recurring event will be printed</span>
+<span class="s1">out. The number of events in the list printed should be &lt;previous number of items + 6&gt;.</span>
+
+<span class="s0">. </span><span class="s1">Add recurring events with period larger than default range</span>
+<span class="s0">.. </span><span class="s1">Test case: </span><span class="s0">`</span><span class="s4">lesson large period /03-01-2020 1000 1200 /365</span><span class="s0">` + 
+</span><span class="s1">Expected: Only one event will be added to the list. And details of it will be printed out. The number of events in the</span>
+<span class="s1">list printed should be &lt;previous number of items + 1&gt;.</span>
+
+<span class="s0">. </span><span class="s1">Add recurring events with non-positive period</span>
+<span class="s0">.. </span><span class="s1">Test case: </span><span class="s0">`</span><span class="s4">practice negative period /04-01-2020 1200 1300 /-4</span><span class="s0">` + 
+</span><span class="s1">Expected: A message inform users to ensure the period number is positive integer is printed.</span>
+<span class="s0">.. </span><span class="s1">Test case: </span><span class="s0">`</span><span class="s4">lesson zero period /05-01-2020 1200 1300 /0</span><span class="s0">` + 
+</span><span class="s1">Expected: A message inform users to ensure the period number is positive integer is printed.</span>
+
+<span class="s0">=== Set a Task as done</span>
+<span class="s1">Key in </span><span class="s0">`</span><span class="s4">done 3</span><span class="s0">` + 
+</span><span class="s1">Expected: Prints a message that the first task on the list has been marked as done.</span>
+<span class="s1">Note: Only works for To-Dos.</span>
+
+<span class="s0">=== Find tasks that contains a certain keyword or key phrase</span>
+<span class="s1">Key in </span><span class="s0">`</span><span class="s4">find MU2113T</span><span class="s0">` </span><span class="s1">to search for all events that contain the keyphrase &quot;MU2113T&quot; </span><span class="s0">+ 
+</span><span class="s1">Expected: Prints a list of tasks that contains the </span><span class="s0">`</span><span class="s1">&lt;</span><span class="s4">key</span><span class="s1">&gt;</span><span class="s0">`</span><span class="s1">.</span>
+
+<span class="s0">=== Get reminder</span>
+<span class="s1">Key in </span><span class="s0">`</span><span class="s4">reminder</span><span class="s0">` + 
+</span><span class="s1">Expected: Prints a list of tasks to be completed in the next few days. Without any</span>
+<span class="s1">second argument, 3 days is the default. See below for getting reminder for a specific</span>
+<span class="s1">number of days.</span>
+
+<span class="s1">Key in </span><span class="s0">`</span><span class="s4">reminder 2</span><span class="s0">` + 
+</span><span class="s1">Expected: Prints a list of tasks to be completed in the next two days.</span>
+
+<span class="s0">=== View all tasks in a certain day</span>
+<span class="s1">Key in </span><span class="s0">`</span><span class="s4">view 19-11-2019</span><span class="s0">`</span><span class="s1">, note that the date is in the format dd-MM-yyyy. </span><span class="s0">+ 
+</span><span class="s1">Expected: Prints a list of tasks that occurs on the given date.</span>
+
+<span class="s0">=== Edit description of an event</span>
+<span class="s1">Key in </span><span class="s0">`</span><span class="s4">edit 2/Promenade</span><span class="s0">`</span><span class="s1">. </span><span class="s0">+ 
+</span><span class="s1">&quot;2&quot; is the index of the event we want to edit, and &quot;Promenade&quot; is the</span>
+<span class="s1">new description we wish to change the event to having. </span><span class="s0">+ 
+</span><span class="s1">Expected: Prints success message and edits event of index </span><span class="s0">`</span><span class="s1">&lt;</span><span class="s4">event index</span><span class="s1">&gt;</span><span class="s0">` </span><span class="s1">to new description.</span>
+
+<span class="s0">=== Reschedule an event</span>
+<span class="s0">. </span><span class="s1">Prerequisites: Event list is not empty, and at least has one type of event.</span>
+
+<span class="s0">. </span><span class="s1">Reschedule an event in the list</span>
+<span class="s0">.. </span><span class="s1">Test case: </span><span class="s0">`</span><span class="s4">reschedule 1 01-01-2020 0000 0100</span><span class="s0">` + 
+</span><span class="s1">Expected: If clash with other event in the list, the details of clash will be printed. Otherwise,</span>
+<span class="s1">a success message will be printed and the event will be rescheduled.</span>
+
+<span class="s0">NOTE: </span><span class="s1">This does not work on to-do type events.</span>
+
+<span class="s0">. </span><span class="s1">Reschedule an event which is not in the list</span>
+<span class="s0">.. </span><span class="s1">Test case: </span><span class="s0">`</span><span class="s4">reschedule 0 01-09-2019 1300 1400</span><span class="s0">` + 
+</span><span class="s1">Expected: The message notice users the correct input format of rescheduling will be printed.</span>
+<span class="s0">.. </span><span class="s1">Test case: </span><span class="s0">`</span><span class="s4">reschedule -3 01-09-2019 1300 1400</span><span class="s0">` + 
+</span><span class="s1">Expected: The message notice users the correct input format of rescheduling will be printed.</span>
+<span class="s0">.. </span><span class="s1">Test case: </span><span class="s0">`</span><span class="s4">reschedule abc 01-09-2019 1300 1400</span><span class="s0">` + 
+</span><span class="s1">Expected: The message notice users the correct input format of rescheduling will be printed.</span>
+
+<span class="s0">=== Check the next 3 free days</span>
+<span class="s1">Key in </span><span class="s0">`</span><span class="s4">check</span><span class="s0">`</span><span class="s1">. </span><span class="s0">+ 
+</span><span class="s1">Expected: Prints the next 3 days without any events.</span>
+
+<span class="s0">=== View the calendar table of the next 7 days.</span>
+<span class="s1">Key in </span><span class="s0">`</span><span class="s4">calendar</span><span class="s0">`</span><span class="s1">.+</span>
+<span class="s1">Expected: Prints the calendar table containing all events of the next 7 days,</span>
+<span class="s1">where the first column of the table is the current day.</span>
+
+<span class="s0">=== Goal management</span>
+<span class="s0">. </span><span class="s1">Prerequisites: Event list is not empty, and at least has one type of event.</span>
+<span class="s0">. </span><span class="s1">Add goal to an event in the list</span>
+<span class="s0">.. </span><span class="s1">Test case: </span><span class="s0">`</span><span class="s4">goal add 1/finish theory chapter 1</span><span class="s0">` + 
+</span><span class="s1">Expected: The goal will be added to the event with index 1. Prints out the success of the operation.</span>
+<span class="s0">.. </span><span class="s1">Test case: </span><span class="s0">`</span><span class="s4">goal view 1</span><span class="s0">` + 
+</span><span class="s1">Expected: Prints out all the goals of event with index 1.</span>
+<span class="s0">.. </span><span class="s1">Test case: </span><span class="s0">`</span><span class="s4">goal edit 1 1/finish theory chapter 2</span><span class="s0">` + 
+</span><span class="s1">Expected: The goal with index 1 of event 1 will be updated to the new goal. Prints out the success of the operation.</span>
+<span class="s0">.. </span><span class="s1">Test case: </span><span class="s0">`</span><span class="s4">goal achieved 1 1</span><span class="s0">` + 
+</span><span class="s1">Expected: Goal 1 of event 1 will be set as achieved. Prints out the success of the operation.</span>
+<span class="s0">.. </span><span class="s1">Test case: </span><span class="s0">`</span><span class="s4">goal delete 1 1</span><span class="s0">` + 
+</span><span class="s1">Expected: Goal 1 of event 1 will be removed from the list. Prints out the success of the operation.</span>
+
+<span class="s0">=== Past event management</span>
+<span class="s1">Key in </span><span class="s0">`</span><span class="s4">list</span><span class="s0">`</span><span class="s1">. </span><span class="s0">+ 
+</span><span class="s1">Expected: The printed list does not contain any events that are over, and any unachieved goals for any past events is</span>
+<span class="s1">printed out at the bottom of the list.</span>
+
+<span class="s0">=== Contact management</span>
+<span class="s0">. </span><span class="s1">Prerequisites: Event list is not empty, and at least has one type of event.</span>
+
+<span class="s0">. </span><span class="s1">Add contact to an event in the list</span>
+<span class="s0">.. </span><span class="s1">Test case: </span><span class="s0">`</span><span class="s4">contact add 1 /name a,email a,phone a</span><span class="s0">` + 
+</span><span class="s1">Expected: The contact is added to the contact list under No.1 event. Prints the success of adding the contact.</span>
+<span class="s0">.. </span><span class="s1">Test case: </span><span class="s0">`</span><span class="s4">contact add 1 /name c,email c,</span><span class="s0">` + 
+</span><span class="s1">Expected: The contact is added to the contact list under No.1 event. Prints the success of adding the contact.</span>
+<span class="s0">.. </span><span class="s1">Test case: </span><span class="s0">`</span><span class="s4">contact add 1 /name d, ,</span><span class="s0">` + 
+</span><span class="s1">Expected: The contact is added to the contact list under No.1 event. Prints the success of adding the contact.</span>
+
+<span class="s0">. </span><span class="s1">View contact of an specified event</span>
+<span class="s0">.. </span><span class="s1">Test case: </span><span class="s0">`</span><span class="s4">contact view 1</span><span class="s0">` + 
+</span><span class="s1">Expected: Prints all of the contacts information in No.1 event.</span>
+
+<span class="s0">. </span><span class="s1">Delete a contact in a specified event</span>
+<span class="s0">.. </span><span class="s1">Test case: </span><span class="s0">`</span><span class="s4">contact delete 1 3</span><span class="s0">` + 
+</span><span class="s1">Expected: Prints the success of deleting the contact.</span>
+
+<span class="s0">. </span><span class="s1">Edit a contact in a specified event</span>
+<span class="s0">.. </span><span class="s1">Test case: </span><span class="s0">`</span><span class="s4">contact edit 1 2 name /new name</span><span class="s0">` + 
+</span><span class="s1">Expected: Prints the success of editing the contact, and the contact details.</span>
+<span class="s0">.. </span><span class="s1">Test case: </span><span class="s0">`</span><span class="s4">contact edit 1 2 email /new email</span><span class="s0">` + 
+</span><span class="s1">Expected: Prints the success of editing the contact, and the contact details.</span>
+
+<span class="s0">=== Budgeting</span>
+<span class="s0">. </span><span class="s1">Each concert added to the list has a cost denoted at the end of the user input.</span>
+<span class="s1">For example, the user input command </span><span class="s0">`</span><span class="s4">concert MyConcert/2-12-2019 1500 1600/30</span><span class="s0">` </span><span class="s1">will</span>
+<span class="s1">have a cost of $30.</span>
+
+<span class="s0">.. </span><span class="s1">Notice earlier that the concert entry events have an extra field at the end. This denotes</span>
+<span class="s1">the cost of the concert to be added.</span>
+<span class="s0">.. </span><span class="s1">Attempting to add two concerts to the same month that exceeds the stipulated budget</span>
+<span class="s1">(set at $50) will result in a message telling the user so, and that the operation has been</span>
+<span class="s1">cancelled. Try </span><span class="s0">`</span><span class="s4">concert NewConcert/1-11-2019 1400 1600/60</span><span class="s0">` </span><span class="s1">for example.</span>
+
+<span class="s0">. </span><span class="s1">The user command </span><span class="s0">`</span><span class="s4">budget MM-yyyy</span><span class="s0">` </span><span class="s1">will result in the program displaying the costs</span>
+<span class="s1">of all concerts in the month denoted by MM-yyyy. </span><span class="s0">+ 
+</span><span class="s1">e.g </span><span class="s0">`</span><span class="s4">budget 11-2019</span><span class="s0">` </span><span class="s1">will display the costs for the month of November 2019.</span>
+
+<span class="s0">. </span><span class="s1">The user command </span><span class="s0">`</span><span class="s4">budget set 35</span><span class="s0">` </span><span class="s1">will change the stipulated budget to the value stated ($35).</span>
+<span class="s1">Similarly, </span><span class="s0">`</span><span class="s4">budget set 70</span><span class="s0">` </span><span class="s1">will set the budget to a value of $70.</span>
+
+<span class="s0">=== Instruments</span>
+<span class="s1">Key in </span><span class="s0">`</span><span class="s4">instrument add /violin</span><span class="s0">` + 
+</span><span class="s1">Expected: An instrument named 'violin' is added to the stored list of instruments, and a message</span>
+<span class="s1">is printed stating that this has been done.</span>
+
+<span class="s1">Key in </span><span class="s0">`</span><span class="s4">instrument view instruments</span><span class="s0">` + 
+</span><span class="s1">Expected: The list of instruments stored in the system is printed out in order of their indexing.</span>
+
+<span class="s1">Key in </span><span class="s0">`</span><span class="s4">instrument service 1 /rehair bow /12-12-2012</span><span class="s0">` + 
+</span><span class="s1">Expected: A servicing information is added to the instrument stored with index 1 that 'rehair bow' is</span>
+<span class="s1">done to the instrument on 12-12-2012. A message is also printed stating that this has been done.</span>
+
+<span class="s1">Key in </span><span class="s0">`</span><span class="s4">instrument view services 1</span><span class="s0">` + 
+</span><span class="s1">Expected: The list of servicing done to the instrument stored with index 1 is printed out.</span>
+</pre>
+</body>
+</html>
